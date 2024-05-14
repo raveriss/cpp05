@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:24:41 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/14 16:01:46 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:30:04 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,101 @@ int main() {
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
 
+    std::cout << CYAN << "\nTEST CREATION OF FORM:" << NC << std::endl;
+    Form *form = NULL;
+    try {
+        form = new Form("Form 42", 50, 25);
+        std::cout << *form << std::endl;
+        ASSERT_TEST(form->getGradeRequiredToSign() == 50, "Grade required to sign is 50.");
+        ASSERT_TEST(form->getGradeRequiredToExecute() == 25, "Grade required to execute is 25.");
+        delete form;
+        form = NULL;
+    } catch (std::exception& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+        ASSERT_TEST(false, "Should not throw an exception here.");
+    }
+
+    std::cout << CYAN << "\nTEST SIGNING FORM WITH SUFFICIENT GRADE:" << NC << std::endl;
+    try {
+        bureaucrat = new Bureaucrat("John Doe", 30);
+        form = new Form("Top Secret", 50, 25);
+        bureaucrat->signForm(*form);
+        ASSERT_TEST(form->getIsSigned() == true, "Form should be signed.");
+        delete bureaucrat;
+        delete form;
+        bureaucrat = NULL;
+        form = NULL;
+    } catch (std::exception& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+        ASSERT_TEST(false, "No exception should be thrown here.");
+    }
+
+    std::cout << CYAN << "\nTEST SIGNING FORM WITH INSUFFICIENT GRADE:" << NC << std::endl;
+    try {
+        bureaucrat = new Bureaucrat("Jane Doe", 60);
+        form = new Form("Top Secret", 50, 25);
+        bureaucrat->signForm(*form);
+        ASSERT_TEST(form->getIsSigned() == false, "Form should not be signed.");
+        delete bureaucrat;
+        delete form;
+        bureaucrat = NULL;
+        form = NULL;
+    } catch (Form::GradeTooLowException& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+        ASSERT_TEST(true, "Correctly threw GradeTooLowException because grade is too low to sign.");
+    } catch (std::exception& e) {
+        std::cerr << "Unhandled exception caught: " << e.what() << std::endl;
+        ASSERT_TEST(false, "Unhandled exception type.");
+    }
+
+    std::cout << CYAN << "\nTEST SIGNING FORM WITH TWO BUREAUCRATS WITH SAME GRADE:" << NC << std::endl;
+    Bureaucrat *firstBureaucrat = NULL;
+    Bureaucrat *secondBureaucrat = NULL;
+    try {
+        firstBureaucrat = new Bureaucrat("Alice", 30);
+        secondBureaucrat = new Bureaucrat("Bob", 30);
+        form = new Form("Confidential Report", 30, 20);
+
+        firstBureaucrat->signForm(*form);
+        ASSERT_TEST(form->getIsSigned() == true, "Form should be signed by Alice.");
+
+        // Try to sign the same form with Bob
+        secondBureaucrat->signForm(*form);
+        ASSERT_TEST(form->getIsSigned() == true, "Form should remain signed despite Bob's attempt.");
+
+        delete firstBureaucrat;
+        delete secondBureaucrat;
+        delete form;
+        firstBureaucrat = NULL;
+        secondBureaucrat = NULL;
+        form = NULL;
+    } catch (std::exception& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+        ASSERT_TEST(false, "No exception should be thrown here.");
+    }
+
+    std::cout << CYAN << "\nTEST MULTIPLE SIGNING ATTEMPTS ON A FORM:" << NC << std::endl;
+    try {
+        bureaucrat = new Bureaucrat("Claire", 20);
+        form = new Form("Top-Level Directive", 25, 15);
+
+        bureaucrat->signForm(*form);
+        bureaucrat->signForm(*form);
+
+        ASSERT_TEST(form->getIsSigned() == true, "Form should be signed initially by Claire.");
+
+        // Attempt to sign again
+        bureaucrat->signForm(*form);
+        ASSERT_TEST(form->getIsSigned() == true, "Form should remain signed; no change on second signing attempt.");
+
+        delete bureaucrat;
+        delete form;
+        bureaucrat = NULL;
+        form = NULL;
+    } catch (std::exception& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+        ASSERT_TEST(false, "No exception should be thrown on multiple signing attempts.");
+    }
 	return 0;
 }
 

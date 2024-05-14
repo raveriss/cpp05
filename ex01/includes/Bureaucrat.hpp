@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:06 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/14 11:12:18 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:13:02 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <Form.hpp>
+
+class Form;  // Déclaration anticipée de la classe Form
+
 
 class Bureaucrat {
 	private:
@@ -27,11 +31,15 @@ class Bureaucrat {
 		Bureaucrat(const Bureaucrat & rootBureaucrat);
 		Bureaucrat & operator = (const Bureaucrat & rootBureaucrat);
 		~Bureaucrat();
+		
 
 		const std::string& getName() const;
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
+
+    	void signForm(Form &form) const;
+
 
 		class GradeTooHighException : public std::exception {
 		public:
