@@ -21,6 +21,9 @@
 #define NC          "\033[0m"
 
 int main() {
+    /*
+    * TEST BUREAUCRAT CREATION AND FORM EXECUTION
+    */
     std::cout << CYAN << "TEST BUREAUCRAT CREATION AND FORM EXECUTION:" << NC << std::endl;
     try {
         Bureaucrat bob("Bob", 1);
@@ -47,15 +50,27 @@ int main() {
         ASSERT_TEST(false, "Exception should not be thrown.");
     }
 
+    /*
+    * TEST AForm CLASS NAME
+    */
     std::cout << CYAN << "\nTEST AForm CLASS NAME:" << NC << std::endl;
     ASSERT_TEST(std::string(typeid(AForm).name()).find("AForm") != std::string::npos, "AForm class name is correct.");
 
+    /*
+    * TEST PRIVATE ATTRIBUTES IN AForm
+    */
     std::cout << CYAN << "\nTEST PRIVATE ATTRIBUTES IN AForm:" << NC << std::endl;
     ASSERT_TEST(true, "Attributes of AForm are private.");
 
+    /*
+    * TEST ATTRIBUTES IN BASE CLASS AForm
+    */
     std::cout << CYAN << "\nTEST ATTRIBUTES IN BASE CLASS AForm:" << NC << std::endl;
     ASSERT_TEST(true, "Attributes are in the base class AForm.");
 
+    /*
+    * TEST FORM CONSTRUCTORS
+    */
     std::cout << CYAN << "\nTEST FORM CONSTRUCTORS:" << NC << std::endl;
     try {
         ShrubberyCreationForm shrub("home");
@@ -66,6 +81,9 @@ int main() {
         ASSERT_TEST(false, "Form constructors threw an exception.");
     }
 
+    /*
+    * TEST ShrubberyCreationForm REQUIREMENTS
+    */
     std::cout << CYAN << "\nTEST ShrubberyCreationForm REQUIREMENTS:" << NC << std::endl;
     try {
         ShrubberyCreationForm shrub("home");
@@ -75,6 +93,9 @@ int main() {
         ASSERT_TEST(false, "ShrubberyCreationForm constructor threw an exception.");
     }
 
+    /*
+    * TEST ShrubberyCreationForm FILE CREATION
+    */
     std::cout << CYAN << "\nTEST ShrubberyCreationForm FILE CREATION:" << NC << std::endl;
     try {
         Bureaucrat bob("Bob", 1);
@@ -89,6 +110,9 @@ int main() {
         ASSERT_TEST(false, "Exception should not be thrown during Shrubbery file creation.");
     }
 
+    /*
+    * TEST RobotomyRequestForm REQUIREMENTS
+    */
     std::cout << CYAN << "\nTEST RobotomyRequestForm REQUIREMENTS:" << NC << std::endl;
     try {
         RobotomyRequestForm robot("Alice");
@@ -98,6 +122,9 @@ int main() {
         ASSERT_TEST(false, "RobotomyRequestForm constructor threw an exception.");
     }
 
+    /*
+    * TEST RobotomyRequestForm DRILLING NOISE
+    */
     std::cout << CYAN << "\nTEST RobotomyRequestForm DRILLING NOISE:" << NC << std::endl;
     try {
         Bureaucrat bob("Bob", 1);
@@ -109,6 +136,9 @@ int main() {
         ASSERT_TEST(false, "Exception should not be thrown during Robotomy execution.");
     }
 
+    /*
+    * TEST PresidentialPardonForm REQUIREMENTS
+    */
     std::cout << CYAN << "\nTEST PresidentialPardonForm REQUIREMENTS:" << NC << std::endl;
     try {
         PresidentialPardonForm pardon("Charlie");
@@ -118,6 +148,9 @@ int main() {
         ASSERT_TEST(false, "PresidentialPardonForm constructor threw an exception.");
     }
 
+    /*
+    * TEST PresidentialPardonForm PARDON
+    */
     std::cout << CYAN << "\nTEST PresidentialPardonForm PARDON:" << NC << std::endl;
     try {
         Bureaucrat bob("Bob", 1);
@@ -129,6 +162,9 @@ int main() {
         ASSERT_TEST(false, "Exception should not be thrown during pardon execution.");
     }
 
+    /*
+    * TEST FORM EXECUTION METHOD
+    */
     std::cout << CYAN << "\nTEST FORM EXECUTION METHOD:" << NC << std::endl;
     try {
         Bureaucrat bob("Bob", 1);
@@ -140,6 +176,9 @@ int main() {
         ASSERT_TEST(false, "Exception should not be thrown during form execution.");
     }
 
+    /*
+    * EST BUREAUCRAT EXECUTE FORM
+    */
     std::cout << CYAN << "\nTEST BUREAUCRAT EXECUTE FORM:" << NC << std::endl;
     try {
         Bureaucrat bob("Bob", 1);
