@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:24:41 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/14 17:30:04 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/15 12:22:45 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,19 @@ int main() {
 	} catch (...) {
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
+
+    std::cout << CYAN << "\nTEST CHECK INITIAL isSigned STATE OF FORM:" << NC << std::endl;
+    Form *initialStateForm = NULL;
+    try {
+        initialStateForm = new Form("Initial State Form", 50, 25);
+		std::cout << "Value of isSigned : " << initialStateForm->getIsSigned() << std::endl;
+        ASSERT_TEST(initialStateForm->getIsSigned() == false, "Form isSigned should be false upon creation."); // Check if isSigned is false
+        delete initialStateForm;
+        initialStateForm = NULL;
+    } catch (std::exception& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+        ASSERT_TEST(false, "Should not throw an exception for creating a form.");
+    }
 
 	std::cout << CYAN << "\nTEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE:" << NC << std::endl;
 	try {

@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:02:19 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/14 17:02:21 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/15 14:30:11 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ int Form::getGradeRequiredToExecute() const {
 }
 
 void Form::beSigned(const Bureaucrat& bureaucrat) {
+    if (isSigned) {
+        throw std::logic_error("Form already signed.");
+    }
     if (bureaucrat.getGrade() <= gradeRequiredToSign) {
         isSigned = true;
     } else {

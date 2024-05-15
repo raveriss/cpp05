@@ -6,13 +6,13 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 14:31:17 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:15:54 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("Default"), _grade(75) {}
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {}
 
 /**
  * @brief Construct a new Bureaucrat:: Bureaucrat object
@@ -48,7 +48,7 @@ Bureaucrat::~Bureaucrat() {}
  * 
  * @return const std::string& 
  */
-const std::string& Bureaucrat::getName() const {
+std::string Bureaucrat::getName() const {
 	return _name;
 }
 
@@ -71,7 +71,7 @@ void Bureaucrat::decrementGrade() {
 	++_grade;
 }
 
-void Bureaucrat::signForm(Form &form) const {
+void Bureaucrat::signForm(AForm &form) const {
 	try {
 		form.beSigned(*this);
 		std::cout << _name << " signed " << form.getName() << std::endl;
@@ -82,7 +82,24 @@ void Bureaucrat::signForm(Form &form) const {
 	}
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
-	os << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
-	return os;
+void Bureaucrat::executeForm(const AForm &form) const {
+    try {
+        form.execute(*this);
+        std::cout << _name << " executed " << form.getName() << std::endl;
+    } catch (std::exception &e) {
+        std::cout << _name << " couldn’t execute " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
+
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
+    return "Grade is too high!";
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
+    return "Grade is too low!";
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
+    out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+    return out;
 }
