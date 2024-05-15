@@ -6,11 +6,11 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:02:19 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 16:54:08 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/15 22:38:06 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/AForm.hpp"
+#include "../incs/AForm.hpp"
 
 AForm::AForm() : _name(""), _isSigned(false), _gradeRequiredToSign(150), _gradeRequiredToExecute(150) {}
 

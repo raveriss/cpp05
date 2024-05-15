@@ -6,11 +6,11 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 16:33:43 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/15 22:38:29 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Bureaucrat.hpp"
+#include "../incs/Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {}
 
