@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:02:19 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 15:55:35 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:54:08 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ AForm& AForm::operator=(const AForm& rhs) {
 AForm::~AForm() {
 }
 
-const std::string& AForm::getName() const {
+std::string AForm::getName() const {
     return _name;
 }
 
@@ -63,9 +63,30 @@ void AForm::beSigned(const Bureaucrat& bureaucrat) {
     }
 }
 
+void AForm::execute(const Bureaucrat &executor) const {
+    if (!_isSigned)
+        throw FormNotSignedException();
+    if (executor.getGrade() > _gradeRequiredToExecute)
+        throw GradeTooLowException();
+    executeAction();
+}
+
 std::ostream& operator<<(std::ostream& os, const AForm& AForm) {
     os << AForm.getName() << ", AForm grade required to sign: " << AForm.getGradeRequiredToSign()
        << ", AForm grade required to execute: " << AForm.getGradeRequiredToExecute()
        << ", Is signed: " << (AForm.getIsSigned() ? "Yes" : "No");
     return os;
 }
+
+const char *AForm::GradeTooHighException::what() const throw() {
+    return "Form grade is too high!";
+}
+
+const char *AForm::GradeTooLowException::what() const throw() {
+    return "Form grade is too low!";
+}
+
+const char *AForm::FormNotSignedException::what() const throw() {
+    return "Form is not signed!";
+}
+

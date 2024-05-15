@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:06 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 16:16:24 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:37:09 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,12 @@ class Bureaucrat {
 
 		class GradeTooHighException : public std::exception {
 		public:
-			const char* what() const throw() {
-				return "Grade too high";
-			}
+			const char *what() const throw();
 		};
 
 		class GradeTooLowException : public std::exception {
 		public:
-			const char* what() const throw() {
-				return "Grade too low";
-			}
+			const char *what() const throw();
 		};
 };
 

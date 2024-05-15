@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 16:02:34 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:39:00 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::executeAction() const {
-    std::ofstream file(target + "_shrubbery");
+    std::ofstream file((target + "_shrubbery").c_str());
     if (file.is_open()) {
         file << "      /\\\n";
         file << "     /\\*\\\n";

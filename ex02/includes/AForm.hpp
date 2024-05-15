@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:01:43 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 15:44:24 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:53:52 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ public:
     AForm(const std::string& name, int gradeToSign, int gradeToExecute);
     AForm(const AForm& src);
     AForm& operator=(const AForm& rhs);
-    ~AForm();
+    virtual ~AForm();
 
-    const std::string& getName() const;
+    std::string getName() const;
     bool getIsSigned() const;
     int getGradeRequiredToSign() const;
     int getGradeRequiredToExecute() const;
@@ -46,16 +46,12 @@ public:
 
     class GradeTooHighException : public std::exception {
     public:
-        const char* what() const throw() {
-            return "Grade too high";
-        }
+        const char* what() const throw();
     };
 
     class GradeTooLowException : public std::exception {
     public:
-        const char* what() const throw() {
-            return "Grade too low";
-        }
+        const char* what() const throw();
     };
     
     class FormNotSignedException : public std::exception {
@@ -63,5 +59,4 @@ public:
         const char *what() const throw();
     };
 
-    friend std::ostream& operator<<(std::ostream& os, const AForm& AForm);
 };
