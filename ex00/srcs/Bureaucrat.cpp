@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 22:30:08 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 22:48:10 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void Bureaucrat::decrementGrade() {
  * @param b 
  * @return std::ostream& 
  */
-std::ostream & operator << (std::ostream & os, const Bureaucra t& b) {
+std::ostream & operator << (std::ostream & os, const Bureaucrat& b) {
     os << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
     return os;
 }
