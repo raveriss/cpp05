@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 12:27:23 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 22:37:11 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {}
  * @param name 
  * @param grade 
  */
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade(grade) {
+Bureaucrat::Bureaucrat(const std::string & name, int grade) : _name(name), _grade(grade) {
 	if (_grade < 1) throw GradeTooHighException();
 	if (_grade > 150) throw GradeTooLowException();
 }
@@ -71,7 +71,7 @@ void Bureaucrat::decrementGrade() {
 	++_grade;
 }
 
-void Bureaucrat::signForm(AForm &form) const {
+void Bureaucrat::signForm(AForm & form) const {
 	try {
 		form.beSigned(*this);
 		std::cout << _name << " signed " << form.getName() << std::endl;
@@ -82,7 +82,7 @@ void Bureaucrat::signForm(AForm &form) const {
 	}
 }
 
-void Bureaucrat::executeForm(const AForm &form) const {
+void Bureaucrat::executeForm(const AForm & form) const {
     try {
         form.execute(*this);
         std::cout << _name << " executed " << form.getName() << std::endl;
@@ -99,7 +99,7 @@ const char *Bureaucrat::GradeTooLowException::what() const throw() {
     return "Grade is too low!";
 }
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
+std::ostream & operator << (std::ostream & out, const Bureaucrat & bureaucrat) {
     out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << std::endl;
     return out;
 }

@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 16:01:41 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 22:34:38 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ protected:
 
 public:
     RobotomyRequestForm();
-    RobotomyRequestForm(const std::string &target);
-    RobotomyRequestForm(const RobotomyRequestForm &other);
-    RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
+    RobotomyRequestForm(const std::string & target);
+    RobotomyRequestForm(const RobotomyRequestForm & other);
+    RobotomyRequestForm & operator = (const RobotomyRequestForm & other);
     virtual ~RobotomyRequestForm();
 };
 

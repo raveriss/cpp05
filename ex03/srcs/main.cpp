@@ -271,7 +271,7 @@ int main() {
     // }
     // */
 
-    std::cout << BLUE << "\nTESTING FORM CREATION BY INTERN" << NC << std::endl;
+    std::cout << CYAN << "\nTESTING FORM CREATION BY INTERN" << NC << std::endl;
 
     // Test: Creating each type of form and executing it
     const char* formTypes[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
@@ -283,8 +283,8 @@ int main() {
             std::cout << "Created: " << form->getName() << " for " << targets[i] << std::endl;
             ceo.signForm(*form);
             ceo.executeForm(*form);
-            ASSERT_TEST(form->getIsSigned(), "Form should be signed");
-            ASSERT_TEST(form->execute(ceo), "Form should be executed without error");
+            ASSERT_TEST(form->getIsSigned(), "Form be signed");
+            ASSERT_TEST(form->execute(ceo), "Form executed without error");
             delete form;
         } else {
             std::cout << "Failed to create form: " << formTypes[i] << std::endl;
@@ -293,17 +293,17 @@ int main() {
     }
 
     // Test: Error handling with an unknown form
-    std::cout << BLUE << "TESTING ERROR HANDLING WITH UNKNOWN FORM" << NC << std::endl;
+    std::cout << CYAN << "TESTING ERROR HANDLING WITH UNKNOWN FORM" << NC << std::endl;
     form = intern.makeForm("unknown form", "nowhere");
-    ASSERT_TEST(!form, "Should not create an unknown form");
+    ASSERT_TEST(!form, "Unknown form not created");
 
     // Test: Check Intern handling of invalid form names
-    std::cout << std::endl << BLUE << "TESTING INVALID FORM NAME HANDLING" << NC << std::endl;
+    std::cout << std::endl << CYAN << "TESTING INVALID FORM NAME HANDLING" << NC << std::endl;
     const char* invalidNames[] = {"", "robomancy request", "presidental party"};
 
     for (int i = 0; i < 3; ++i) {
         form = intern.makeForm(invalidNames[i], "target");
-        ASSERT_TEST(!form, "Invalid form name should not create a form");
+        ASSERT_TEST(!form, "Invalid form name, does not create form");
     }
 
     return 0;

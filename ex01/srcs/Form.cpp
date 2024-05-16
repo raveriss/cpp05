@@ -6,13 +6,13 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:02:19 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 14:30:11 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 22:32:55 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
+Form::Form(const std::string & name, int gradeToSign, int gradeToExecute)
     : name(name), isSigned(false), gradeRequiredToSign(gradeToSign), gradeRequiredToExecute(gradeToExecute) {
     if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
@@ -20,12 +20,12 @@ Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
         throw GradeTooLowException();
 }
 
-Form::Form(const Form& src)
+Form::Form(const Form & src)
     : name(src.name), isSigned(src.isSigned), gradeRequiredToSign(src.gradeRequiredToSign), gradeRequiredToExecute(src.gradeRequiredToExecute) {
 }
 
-Form& Form::operator=(const Form& rhs) {
-    if (this != &rhs) {
+Form& Form::operator=(const Form & rhs) {
+    if (this != & rhs) {
         this->isSigned = rhs.isSigned;
     }
     return *this;
@@ -34,7 +34,7 @@ Form& Form::operator=(const Form& rhs) {
 Form::~Form() {
 }
 
-const std::string& Form::getName() const {
+const std::string & Form::getName() const {
     return name;
 }
 
@@ -50,7 +50,7 @@ int Form::getGradeRequiredToExecute() const {
     return gradeRequiredToExecute;
 }
 
-void Form::beSigned(const Bureaucrat& bureaucrat) {
+void Form::beSigned(const Bureaucrat & bureaucrat) {
     if (isSigned) {
         throw std::logic_error("Form already signed.");
     }
@@ -61,7 +61,7 @@ void Form::beSigned(const Bureaucrat& bureaucrat) {
     }
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& form) {
+std::ostream& operator<<(std::ostream & os, const Form & form) {
     os << form.getName() << ", Form grade required to sign: " << form.getGradeRequiredToSign()
        << ", Form grade required to execute: " << form.getGradeRequiredToExecute()
        << ", Is signed: " << (form.getIsSigned() ? "Yes" : "No");

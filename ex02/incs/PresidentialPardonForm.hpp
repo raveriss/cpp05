@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:59:02 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 16:00:55 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 22:34:21 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ protected:
 
 public:
     PresidentialPardonForm();
-    PresidentialPardonForm(const std::string &target);
-    PresidentialPardonForm(const PresidentialPardonForm &other);
-    PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
+    PresidentialPardonForm(const std::string & target);
+    PresidentialPardonForm(const PresidentialPardonForm & other);
+    PresidentialPardonForm & operator = (const PresidentialPardonForm & other);
     virtual ~PresidentialPardonForm();
 };
 

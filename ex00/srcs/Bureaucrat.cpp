@@ -6,16 +6,14 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 17:41:44 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 22:30:08 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
-#include <limits>
 
 /**
  * @brief Construct a new Bureaucrat:: Bureaucrat object
- * 
  */
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(75) {}
 
@@ -64,7 +62,7 @@ Bureaucrat::~Bureaucrat() {}
  * 
  * @return const std::string& 
  */
-const std::string& Bureaucrat::getName() const {
+const std::string & Bureaucrat::getName() const {
     return _name;
 }
 
@@ -102,7 +100,7 @@ void Bureaucrat::decrementGrade() {
  * @param b 
  * @return std::ostream& 
  */
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
+std::ostream & operator << (std::ostream & os, const Bureaucra t& b) {
     os << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
     return os;
 }

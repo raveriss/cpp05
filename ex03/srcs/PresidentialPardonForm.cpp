@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:58:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 15:03:46 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 22:45:17 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), target("") {}
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialPardonForm", 25, 5), target(target) {}
+PresidentialPardonForm::PresidentialPardonForm(const std::string & target) : AForm("PresidentialPardonForm", 25, 5), target(target) {}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : AForm(other), target(other.target) {}
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & other) : AForm(other), target(other.target) {}
 
-PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other) {
-    if (this != &other) {
-        AForm::operator=(other);
+PresidentialPardonForm & PresidentialPardonForm::operator = (const PresidentialPardonForm & other) {
+    if (this != & other) {
+        AForm::operator = (other);
         target = other.target;
     }
     return *this;

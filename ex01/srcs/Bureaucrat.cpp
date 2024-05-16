@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 14:31:17 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 22:32:25 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Bureaucrat::Bureaucrat() : _name("Default"), _grade(75) {}
  * @param name 
  * @param grade 
  */
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade(grade) {
+Bureaucrat::Bureaucrat(const std::string & name, int grade) : _name(name), _grade(grade) {
 	if (_grade < 1) throw GradeTooHighException();
 	if (_grade > 150) throw GradeTooLowException();
 }
@@ -48,7 +48,7 @@ Bureaucrat::~Bureaucrat() {}
  * 
  * @return const std::string& 
  */
-const std::string& Bureaucrat::getName() const {
+const std::string & Bureaucrat::getName() const {
 	return _name;
 }
 
@@ -71,7 +71,7 @@ void Bureaucrat::decrementGrade() {
 	++_grade;
 }
 
-void Bureaucrat::signForm(Form &form) const {
+void Bureaucrat::signForm(Form & form) const {
 	try {
 		form.beSigned(*this);
 		std::cout << _name << " signed " << form.getName() << std::endl;
@@ -82,7 +82,7 @@ void Bureaucrat::signForm(Form &form) const {
 	}
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
+std::ostream & operator << (std::ostream & os, const Bureaucrat & b) {
 	os << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
 	return os;
 }

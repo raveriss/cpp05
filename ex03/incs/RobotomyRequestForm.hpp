@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 16:01:41 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 22:41:24 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 #include <cstdlib>
 
 class RobotomyRequestForm : public AForm {
-private:
-    std::string target;
+    private:
+        std::string target;
 
-protected:
-    void executeAction() const;
+    protected:
+        void executeAction() const;
 
-public:
-    RobotomyRequestForm();
-    RobotomyRequestForm(const std::string &target);
-    RobotomyRequestForm(const RobotomyRequestForm &other);
-    RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
-    virtual ~RobotomyRequestForm();
+    public:
+        RobotomyRequestForm();
+        RobotomyRequestForm(const std::string & target);
+        RobotomyRequestForm(const RobotomyRequestForm & other);
+        RobotomyRequestForm & operator = (const RobotomyRequestForm & other);
+        virtual ~RobotomyRequestForm();
 };
 
 #endif

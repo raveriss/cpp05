@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:46 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 16:02:51 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 22:41:40 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 #include "AForm.hpp"
 
 class ShrubberyCreationForm : public AForm {
-private:
-    std::string target;
+    private:
+        std::string target;
 
-protected:
-    void executeAction() const;
+    protected:
+        void executeAction() const;
 
-public:
-    ShrubberyCreationForm();
-    ShrubberyCreationForm(const std::string &target);
-    ShrubberyCreationForm(const ShrubberyCreationForm &other);
-    ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
-    virtual ~ShrubberyCreationForm();
+    public:
+        ShrubberyCreationForm();
+        ShrubberyCreationForm(const std::string & target);
+        ShrubberyCreationForm(const ShrubberyCreationForm & other);
+        ShrubberyCreationForm & operator = (const ShrubberyCreationForm & other);
+        virtual ~ShrubberyCreationForm();
 };
 
 #endif

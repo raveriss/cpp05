@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:01:43 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 16:53:52 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 22:33:38 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ protected:
 
 public:
     AForm();
-    AForm(const std::string& name, int gradeToSign, int gradeToExecute);
-    AForm(const AForm& src);
-    AForm& operator=(const AForm& rhs);
+    AForm(const std::string & name, int gradeToSign, int gradeToExecute);
+    AForm(const AForm & src);
+    AForm & operator = (const AForm & rhs);
     virtual ~AForm();
 
     std::string getName() const;
@@ -41,22 +41,22 @@ public:
     int getGradeRequiredToSign() const;
     int getGradeRequiredToExecute() const;
 
-    void beSigned(const Bureaucrat& bureaucrat);
-    void execute(const Bureaucrat &executor) const;
+    void beSigned(const Bureaucrat & bureaucrat);
+    void execute(const Bureaucrat & executor) const;
 
     class GradeTooHighException : public std::exception {
     public:
-        const char* what() const throw();
+        const char * what() const throw();
     };
 
     class GradeTooLowException : public std::exception {
     public:
-        const char* what() const throw();
+        const char * what() const throw();
     };
     
     class FormNotSignedException : public std::exception {
     public:
-        const char *what() const throw();
+        const char * what() const throw();
     };
 
 };

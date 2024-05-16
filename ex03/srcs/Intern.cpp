@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:47:28 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 16:16:04 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 22:44:45 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@
 
 Intern::Intern() {}
 
-Intern::Intern(const Intern& other) {
+Intern::Intern(const Intern & other) {
     *this = other;
 }
 
-Intern& Intern::operator=(const Intern& other) {
-    if (this != &other) {
+Intern& Intern::operator = (const Intern & other) {
+    if (this != & other) {
     }
     return *this;
 }
 
 Intern::~Intern() {}
 
-AForm* Intern::makeForm(const std::string& formName, const std::string& target) const {
+AForm * Intern::makeForm(const std::string & formName, const std::string & target) const {
     std::string formTypes[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
     AForm* (Intern::*formCreators[3])(const std::string&) const = {
         &Intern::createShrubberyCreation,
@@ -50,14 +50,14 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
     return NULL;
 }
 
-AForm* Intern::createShrubberyCreation(const std::string& target) const {
+AForm * Intern::createShrubberyCreation(const std::string & target) const {
     return new ShrubberyCreationForm(target);
 }
 
-AForm* Intern::createRobotomyRequest(const std::string& target) const {
+AForm * Intern::createRobotomyRequest(const std::string & target) const {
     return new RobotomyRequestForm(target);
 }
 
-AForm* Intern::createPresidentialPardon(const std::string& target) const {
+AForm * Intern::createPresidentialPardon(const std::string & target) const {
     return new PresidentialPardonForm(target);
 }
