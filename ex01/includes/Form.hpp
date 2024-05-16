@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:01:43 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/14 17:14:59 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:09:17 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ public:
         }
     };
 
-    friend std::ostream& operator<<(std::ostream& os, const Form& form);
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& form);
