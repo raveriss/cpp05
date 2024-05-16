@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:24:41 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/14 16:01:46 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 17:50:01 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ int main() {
 
 		copyBureaucrat->incrementGrade();
 		std::cout << BLUE << "\nAfter incrementing copy:\n" << NC;
+		///copy not original
 		std::cout << *copyBureaucrat;
 		std::cout << *bureaucrat;
 		ASSERT_TEST(copyBureaucrat->getGrade() == 49, "Grade of copy incremented.");

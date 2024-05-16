@@ -6,15 +6,19 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:06 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 17:40:26 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:37:09 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_H
-#define BUREAUCRAT_H
+#pragma once
 
 #include <iostream>
 #include <stdexcept>
+#include <AForm.hpp>
+#include <Bureaucrat.hpp>
+
+class AForm;  // Déclaration anticipée de la classe Form
+
 
 class Bureaucrat {
 	private:
@@ -27,27 +31,25 @@ class Bureaucrat {
 		Bureaucrat(const Bureaucrat & rootBureaucrat);
 		Bureaucrat & operator = (const Bureaucrat & rootBureaucrat);
 		~Bureaucrat();
-
-		const std::string& getName() const;
+		
+		std::string getName() const;
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
 
+		void signForm(AForm &form) const;
+		void executeForm(const AForm &form) const;
+
 		class GradeTooHighException : public std::exception {
 		public:
-			const char* what() const throw() {
-				return "Grade too high";
-			}
+			const char *what() const throw();
 		};
 
 		class GradeTooLowException : public std::exception {
 		public:
-			const char* what() const throw() {
-				return "Grade too low";
-			}
+			const char *what() const throw();
 		};
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
 
-#endif

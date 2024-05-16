@@ -6,14 +6,17 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/14 15:48:36 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 17:41:44 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 #include <limits>
 
-
+/**
+ * @brief Construct a new Bureaucrat:: Bureaucrat object
+ * 
+ */
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(75) {}
 
 /**
@@ -27,8 +30,19 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade
     if (_grade > 150) throw GradeTooLowException();
 }
 
+/**
+ * @brief Construct a new Bureaucrat:: Bureaucrat object
+ * 
+ * @param rootBureaucrat 
+ */
 Bureaucrat::Bureaucrat(const Bureaucrat & rootBureaucrat) : _name(rootBureaucrat._name), _grade(rootBureaucrat._grade) {}
 
+/**
+ * @brief 
+ * 
+ * @param rootBureaucrat 
+ * @return Bureaucrat& 
+ */
 Bureaucrat & Bureaucrat :: operator = (const Bureaucrat & rootBureaucrat)
 {
     if (this != & rootBureaucrat)
@@ -63,16 +77,31 @@ int Bureaucrat::getGrade() const {
     return _grade;
 }
 
+/**
+ * @brief incrementGrade
+ * 
+ */
 void Bureaucrat::incrementGrade() {
     if (_grade <= 1) throw GradeTooHighException();
     --_grade;
 }
 
+/**
+ * @brief 
+ * 
+ */
 void Bureaucrat::decrementGrade() {
     if (_grade >= 150) throw GradeTooLowException();
     ++_grade;
 }
 
+/**
+ * @brief 
+ * 
+ * @param os 
+ * @param b 
+ * @return std::ostream& 
+ */
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
     os << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
     return os;
