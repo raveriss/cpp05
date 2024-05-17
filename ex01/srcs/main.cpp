@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:24:41 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/15 12:22:45 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/17 13:08:18 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,33 @@
 #define NC			"\033[0m"
 
 int main() {
-	Bureaucrat *bureaucrat = NULL;
-	Bureaucrat *copyBureaucrat = NULL;
+	Bureaucrat *original = NULL;
+	Bureaucrat *copy = NULL;
 
+	/*
+	* TEST CREATION OF BUREAUCRAT WITH VALID GRADE
+	*/
 	std::cout << CYAN << "TEST CREATION OF BUREAUCRAT WITH VALID GRADE:" << NC  << std::endl;
 	try {
-		bureaucrat = new Bureaucrat("John Doe", 75);
-		std::cout << *bureaucrat;
-		ASSERT_TEST(bureaucrat->getGrade() == 75, "Grade 75.");
-		delete bureaucrat;
-		bureaucrat = NULL;
+		original = new Bureaucrat("John Doe", 75);
+		std::cout << *original;
+		ASSERT_TEST(original->getGrade() == 75, "Grade 75.");
+		delete original;
+		original = NULL;
 	} catch (std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(false, "Should not throw an exception here.");
 	}
 
+	/*
+	* TEST CREATION OF BUREAUCRAT WITH TOO HIGH GRADE
+	*/
 	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH TOO HIGH GRADE:" << NC << std::endl;
 	try {
-		bureaucrat = new Bureaucrat("Jane Doe", 0);
-		std::cout << *bureaucrat;
-		delete bureaucrat;
-		bureaucrat = NULL;
+		original = new Bureaucrat("Jane Doe", 0);
+		std::cout << *original;
+		delete original;
+		original = NULL;
 		ASSERT_TEST(false, "Should have thrown GradeTooHighException.");
 	} catch (Bureaucrat::GradeTooHighException& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
@@ -56,12 +62,15 @@ int main() {
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
 
+	/*
+	* TEST CREATION OF BUREAUCRAT WITH TOO LOW GRADE
+	*/
 	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH TOO LOW GRADE:" << NC << std::endl;
 	try {
-		bureaucrat = new Bureaucrat("Jim Doe", 151);
-		std::cout << *bureaucrat;
-		delete bureaucrat;
-		bureaucrat = NULL;
+		original = new Bureaucrat("Jim Doe", 151);
+		std::cout << *original;
+		delete original;
+		original = NULL;
 		ASSERT_TEST(false, "Should have thrown GradeTooLowException.");
 	} catch (Bureaucrat::GradeTooLowException& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
@@ -70,98 +79,90 @@ int main() {
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
 
-    std::cout << CYAN << "\nTEST CHECK INITIAL isSigned STATE OF FORM:" << NC << std::endl;
-    Form *initialStateForm = NULL;
-    try {
-        initialStateForm = new Form("Initial State Form", 50, 25);
-		std::cout << "Value of isSigned : " << initialStateForm->getIsSigned() << std::endl;
-        ASSERT_TEST(initialStateForm->getIsSigned() == false, "Form isSigned should be false upon creation."); // Check if isSigned is false
-        delete initialStateForm;
-        initialStateForm = NULL;
-    } catch (std::exception& e) {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
-        ASSERT_TEST(false, "Should not throw an exception for creating a form.");
-    }
-
+	/*
+	* TEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE
+	*/
 	std::cout << CYAN << "\nTEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE:" << NC << std::endl;
 	try {
-		bureaucrat = new Bureaucrat("Julia Doe", 10);
-		std::cout << *bureaucrat;
-		bureaucrat->incrementGrade();
+		original = new Bureaucrat("Julia Doe", 10);
+		std::cout << *original;
+		original->incrementGrade();
 		std::cout << BLUE << "\nAfter incrementing bureaucrat :" << NC << std::endl;
-		std::cout << *bureaucrat;
-		ASSERT_TEST(bureaucrat->getGrade() == 9, "Grade incremented to 9.");
+		std::cout << *original;
+		ASSERT_TEST(original->getGrade() == 9, "Grade incremented to 9.");
 
-		bureaucrat->decrementGrade();
+		original->decrementGrade();
 		std::cout << BLUE << "\nAfter decrementing bureaucrat :" << NC << std::endl;
 
-		std::cout << *bureaucrat;
-		ASSERT_TEST(bureaucrat->getGrade() == 10, "Grade decremented to 10.");
+		std::cout << *original;
+		ASSERT_TEST(original->getGrade() == 10, "Grade decremented to 10.");
 
-		delete bureaucrat;
-		bureaucrat = NULL;
+		delete original;
+		original = NULL;
 	} catch (std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
 
-	// Test for Copy Constructor
+	/*
+	* TEST COPY CONSTRUCTOR
+	*/
 	std::cout << CYAN << "\nTEST COPY CONSTRUCTOR:" << NC << std::endl;
-	try {
-		bureaucrat = new Bureaucrat("Original Bureaucrat", 50);
-		std::cout << "Original Bureaucrat: " << *bureaucrat;
+	try {		
+		original = new Bureaucrat("Bureaucrat", 50);
+		std::cout << "Original " << *original;
 
-		copyBureaucrat = new Bureaucrat(*bureaucrat);
-		std::cout << "    Copy Bureaucrat: " << *copyBureaucrat;
+		copy = new Bureaucrat(*original);
+		std::cout << "Copy " << *copy;
 
-		ASSERT_TEST(copyBureaucrat->getName() == bureaucrat->getName(), "Copy have the same name.");
-		ASSERT_TEST(copyBureaucrat->getGrade() == bureaucrat->getGrade(), "Copy have the same grade.");
+		ASSERT_TEST(copy->getName() == original->getName(), "Copy have the same name.");
+		ASSERT_TEST(copy->getGrade() == original->getGrade(), "Copy have the same grade.");
 
-		copyBureaucrat->incrementGrade();
+		copy->incrementGrade();
 		std::cout << BLUE << "\nAfter incrementing copy:\n" << NC;
-		std::cout << *copyBureaucrat;
-		std::cout << *bureaucrat;
-		ASSERT_TEST(copyBureaucrat->getGrade() == 49, "Grade of copy incremented.");
-		ASSERT_TEST(bureaucrat->getGrade() == 50, "Grade of original unchanged.");
+		std::cout << "Original " << *original;
+		std::cout << "Copy " << *copy;
+		ASSERT_TEST(original->getGrade() == 50, "Grade of original unchanged.");
+		ASSERT_TEST(copy->getGrade() == 49, "Grade of copy incremented.");
 
-		delete bureaucrat;
-		delete copyBureaucrat;
+		delete original;
+		delete copy;
 	} catch (std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
 
-	// Test for Assignment Operator
+	/*
+	* TEST ASSIGNMENT OPERATOR
+	*/
 	std::cout << CYAN << "\nTEST ASSIGNMENT OPERATOR:" << NC << std::endl;
 	try {
-		bureaucrat = new Bureaucrat("First Bureaucrat", 75);
-		copyBureaucrat = new Bureaucrat("Second Bureaucrat", 100);
-		std::cout <<  BLUE << "Before assignment:" << NC << "\nOriginal: " << *bureaucrat << "   Copy: " << *copyBureaucrat << std::endl;
+		original = new Bureaucrat("First", 75);
+		copy = new Bureaucrat("Second", 100);
+		std::cout <<  BLUE << "Before assignment:" << NC << std::endl << *original << *copy << std::endl;
 
-		*copyBureaucrat = *bureaucrat;  // Using assignment operator
+		*copy = *original;  // Using assignment operator
 		std::cout << BLUE << "After assignment:" << NC << std::endl;
-		std::cout << " " << *bureaucrat;
-		std::cout << *copyBureaucrat;
+		std::cout << *original << *copy;
+		ASSERT_TEST(copy->getName() == "Second", "Name of copy unchanged.");
+		ASSERT_TEST(copy->getGrade() == 75, "Grade of copy updated to 75.");
 
-		ASSERT_TEST(copyBureaucrat->getName() == "Second Bureaucrat", "Name of copy unchanged.");
-		ASSERT_TEST(copyBureaucrat->getGrade() == 75, "Grade of copy updated to 75.");
-
-		copyBureaucrat->incrementGrade();
+		copy->incrementGrade();
 		std::cout << BLUE << "\nAfter incrementing Second Bureaucrat :" << NC << std::endl;
+		std::cout << *original << *copy;
+		ASSERT_TEST(original->getGrade() == 75, "Grade of original unchanged.");
+		ASSERT_TEST(copy->getGrade() == 74, "Grade of copy incremented.");
 
-		std::cout << *copyBureaucrat;
-		std::cout << " " << *bureaucrat;
-
-		ASSERT_TEST(copyBureaucrat->getGrade() == 74, "Grade of copy incremented.");
-		ASSERT_TEST(bureaucrat->getGrade() == 75, "Grade of original unchanged.");
-
-		delete bureaucrat;
-		delete copyBureaucrat;
+		delete original;
+		delete copy;
 	} catch (std::exception& e) {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
 
+	/*
+	* TEST CREATION OF FORM
+	*/
     std::cout << CYAN << "\nTEST CREATION OF FORM:" << NC << std::endl;
     Form *form = NULL;
     try {
@@ -176,30 +177,36 @@ int main() {
         ASSERT_TEST(false, "Should not throw an exception here.");
     }
 
+	/*
+	* TEST SIGNING FORM WITH SUFFICIENT GRADE
+	*/
     std::cout << CYAN << "\nTEST SIGNING FORM WITH SUFFICIENT GRADE:" << NC << std::endl;
     try {
-        bureaucrat = new Bureaucrat("John Doe", 30);
+        original = new Bureaucrat("John Doe", 30);
         form = new Form("Top Secret", 50, 25);
-        bureaucrat->signForm(*form);
+        original->signForm(*form);
         ASSERT_TEST(form->getIsSigned() == true, "Form should be signed.");
-        delete bureaucrat;
+        delete original;
         delete form;
-        bureaucrat = NULL;
+        original = NULL;
         form = NULL;
     } catch (std::exception& e) {
         std::cerr << "Exception caught: " << e.what() << std::endl;
         ASSERT_TEST(false, "No exception should be thrown here.");
     }
 
+	/*
+	* TEST SIGNING FORM WITH INSUFFICIENT GRADE
+	*/
     std::cout << CYAN << "\nTEST SIGNING FORM WITH INSUFFICIENT GRADE:" << NC << std::endl;
     try {
-        bureaucrat = new Bureaucrat("Jane Doe", 60);
+        original = new Bureaucrat("Jane Doe", 60);
         form = new Form("Top Secret", 50, 25);
-        bureaucrat->signForm(*form);
+        original->signForm(*form);
         ASSERT_TEST(form->getIsSigned() == false, "Form should not be signed.");
-        delete bureaucrat;
+        delete original;
         delete form;
-        bureaucrat = NULL;
+        original = NULL;
         form = NULL;
     } catch (Form::GradeTooLowException& e) {
         std::cerr << "Exception caught: " << e.what() << std::endl;
@@ -209,6 +216,9 @@ int main() {
         ASSERT_TEST(false, "Unhandled exception type.");
     }
 
+	/*
+	* TEST SIGNING FORM WITH TWO BUREAUCRATS WITH SAME GRADE
+	*/
     std::cout << CYAN << "\nTEST SIGNING FORM WITH TWO BUREAUCRATS WITH SAME GRADE:" << NC << std::endl;
     Bureaucrat *firstBureaucrat = NULL;
     Bureaucrat *secondBureaucrat = NULL;
@@ -235,23 +245,26 @@ int main() {
         ASSERT_TEST(false, "No exception should be thrown here.");
     }
 
+	/*
+	* TEST MULTIPLE SIGNING ATTEMPTS ON A FORM
+	*/
     std::cout << CYAN << "\nTEST MULTIPLE SIGNING ATTEMPTS ON A FORM:" << NC << std::endl;
     try {
-        bureaucrat = new Bureaucrat("Claire", 20);
+        original = new Bureaucrat("Claire", 20);
         form = new Form("Top-Level Directive", 25, 15);
 
-        bureaucrat->signForm(*form);
-        bureaucrat->signForm(*form);
+        original->signForm(*form);
+        original->signForm(*form);
 
         ASSERT_TEST(form->getIsSigned() == true, "Form should be signed initially by Claire.");
 
         // Attempt to sign again
-        bureaucrat->signForm(*form);
+        original->signForm(*form);
         ASSERT_TEST(form->getIsSigned() == true, "Form should remain signed; no change on second signing attempt.");
 
-        delete bureaucrat;
+        delete original;
         delete form;
-        bureaucrat = NULL;
+        original = NULL;
         form = NULL;
     } catch (std::exception& e) {
         std::cerr << "Exception caught: " << e.what() << std::endl;
