@@ -6,12 +6,11 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:06 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 22:29:36 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/16 22:55:19 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_H
-#define BUREAUCRAT_H
+#pragma once
 
 #include <iostream>
 #include <stdexcept>
@@ -49,5 +48,3 @@ class Bureaucrat {
 };
 
 std::ostream & operator << (std::ostream & os, const Bureaucrat & b);
-
-#endif
