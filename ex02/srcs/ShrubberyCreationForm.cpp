@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/17 15:52:26 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/17 16:09:26 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <sstream>
 #include <sys/stat.h>
+
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), target("") {}
 
@@ -31,11 +32,6 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreati
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
-
-#include <fstream>
-#include <sstream>
-#include <iostream>
-#include <sys/stat.h> // Pour la fonction stat
 
 void ShrubberyCreationForm::executeAction() const {
     std::string baseFilename = target + "_shrubbery";
@@ -85,25 +81,3 @@ void ShrubberyCreationForm::executeAction() const {
         std::cerr << "Failed to open file: " << filename << "\n";
     }
 }
-
-
-
-
-
-
-
-// void ShrubberyCreationForm::executeAction() const {
-//     std::ofstream file((target + "_shrubbery").c_str());
-//     if (file.is_open()) {
-//         file << "      /\\\n";
-//         file << "     /\\*\\\n";
-//         file << "    /\\O\\*\\\n";
-//         file << "   /*/\\/\\/\\\n";
-//         file << "  /\\O\\/\\*\\/\\\n";
-//         file << " /\\*\\/\\*\\/\\/\\\n";
-//         file << "/\\O\\/\\/*/\\/O/\\\n";
-//         file << "      ||\n";
-//         file << "      ||\n";
-//         file.close();
-//     }
-// }

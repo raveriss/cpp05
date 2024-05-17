@@ -6,12 +6,15 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 23:30:01 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/17 16:10:13 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/ShrubberyCreationForm.hpp"
 #include <fstream>
+#include <iostream>
+#include <sstream>
+#include <sys/stat.h>
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), target("") {}
 
@@ -30,7 +33,37 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreati
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::executeAction() const {
-    std::ofstream file((target + "_shrubbery").c_str());
+    std::string baseFilename = target + "_shrubbery";
+    std::string filename = baseFilename;
+    struct stat fileStat;
+
+    // Check if base file exists and its permissions
+    if (stat(filename.c_str(), &fileStat) == 0 && (fileStat.st_mode & S_IWUSR) == 0) { // Fichier existant et non accessible en écriture
+        std::cout << "File " << baseFilename << " already exists and is not writable. \n";
+        int counter = 1;
+        bool fileFound = false;
+
+        while (!fileFound) {
+            std::ostringstream oss;
+            oss << baseFilename << "_" << counter++;
+            filename = oss.str();
+            
+            // Check if new filename exists
+            if (stat(filename.c_str(), &fileStat) == 0) {
+                // File exists, check its permissions
+                if ((fileStat.st_mode & S_IWUSR) == 0) {
+                    std::cout << "File " << filename << " already exists and is not writable. \nTrying next suffix.\n";
+                } else {
+                    fileFound = true; // File exists and is writable
+                }
+            } else {
+                fileFound = true; // File does not exist, can be created
+            }
+        }
+        std::cout << "Creating a new file with suffix _" << counter - 1 << std::endl;
+    }
+
+    std::ofstream file(filename.c_str());
     if (file.is_open()) {
         file << "      /\\\n";
         file << "     /\\*\\\n";
@@ -42,5 +75,8 @@ void ShrubberyCreationForm::executeAction() const {
         file << "      ||\n";
         file << "      ||\n";
         file.close();
+        std::cout << "File " << filename << " created successfully." << std::endl;
+    } else {
+        std::cerr << "Failed to open file: " << filename << "\n";
     }
 }
