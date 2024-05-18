@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:01:43 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 01:45:51 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 02:24:46 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ class AForm {
 		};
 
 		class GradeTooLowException : public std::exception {
-		public:
-			const char * what() const throw();
+			public:
+				const char * what() const throw();
 		};
 		
 		class FormNotSignedException : public std::exception {
-		public:
-			const char * what() const throw();
+			public:
+				const char * what() const throw();
 		};
 
 };
