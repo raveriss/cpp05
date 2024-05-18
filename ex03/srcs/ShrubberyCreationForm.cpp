@@ -6,10 +6,13 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 03:15:33 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 03:31:20 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @brief Inclusion du fichier d'en-tête de la classe ShrubberyCreationForm
+ */
 #include "../incs/ShrubberyCreationForm.hpp"
 
 /**

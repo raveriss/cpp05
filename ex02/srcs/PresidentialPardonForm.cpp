@@ -6,12 +6,14 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:58:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 02:51:59 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 03:36:40 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @brief Inclusion du fichier d'en-tête de la classe PresidentialPardonForm
+ */
 #include "PresidentialPardonForm.hpp"
-#include <iostream>
 
 /**
  * @brief Constructeur par défaut de la classe PresidentialPardonForm

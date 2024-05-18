@@ -1,10 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/18 03:38:25 by raveriss          #+#    #+#             */
+/*   Updated: 2024/05/18 03:44:02 by raveriss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/**
+ * @brief Inclusion de la bibliothèque standard pour les flux d'entrée/sortie
+ */
 #include <iostream>
+
+/**
+ * @brief Inclusion de la bibliothèque standard pour la gestion des fichiers
+ */
 #include <fstream>
-#include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "AForm.hpp"
+
+/**
+ * @brief Inclusion du fichier d'en-tête de la classe Bureaucrat
+ */
+#include "../incs/Bureaucrat.hpp"
+#include "../incs/ShrubberyCreationForm.hpp"
+#include "../incs/RobotomyRequestForm.hpp"
+#include "../incs/PresidentialPardonForm.hpp"
+#include "../incs/AForm.hpp"
 #include <typeinfo>
 
 /**

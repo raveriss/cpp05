@@ -6,13 +6,23 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:59:02 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 02:56:09 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 04:08:09 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @brief Directive pour éviter les inclusions multiples d'un fichier d'en-tête
+ */
 #pragma once
 
+/**
+ * @brief Inclusion du fichier d'en-tête de la classe Intern
+ */
 #include "AForm.hpp"
+
+/**
+ * @brief Inclusion de la bibliothèque standard pour les flux d'entrée/sortie
+ */
 #include <iostream>
 
 /**

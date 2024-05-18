@@ -6,10 +6,13 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:09 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 03:13:04 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 03:34:19 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @brief Inclusion du fichier d'en-tête de la classe RobotomyRequestForm
+ */
 #include "../incs/RobotomyRequestForm.hpp"
 
 /**

@@ -6,14 +6,28 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:01:43 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 02:54:47 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 04:16:25 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @brief Directive pour éviter les inclusions multiples d'un fichier d'en-tête
+ */
 #pragma once
 
+/**
+ * @brief Inclusion de la bibliothèque standard pour la gestion des chaînes de caractères
+ */
 #include <string>
+
+/**
+ * @brief Inclusion de la bibliothèque standard pour les flux d'entrée/sortie
+ */
 #include <iostream>
+
+/**
+ * @brief Inclusion du fichier d'en-tête de la classe Bureaucrat
+ */
 #include "Bureaucrat.hpp"
 
 /**

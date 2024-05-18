@@ -6,13 +6,23 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:06 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 02:29:16 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 03:21:49 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @brief Directive pour éviter les inclusions multiples d'un fichier d'en-tête
+ */
 #pragma once
 
+/**
+ * @brief Inclusion de la bibliothèque standard pour les flux d'entrée/sortie
+ */
 #include <iostream>
+
+/**
+ * @brief Inclusion de la bibliothèque standard pour la gestion des exceptions
+ */
 #include <stdexcept>
 
 /**

@@ -6,12 +6,14 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:09 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 02:52:27 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 03:35:29 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
-#include <iostream>
+/**
+ * @brief Inclusion du fichier d'en-tête de la classe RobotomyRequestForm
+ */
+#include "../incs/RobotomyRequestForm.hpp"
 
 /**
  * @brief Constructeur par défaut de la classe RobotomyRequestForm

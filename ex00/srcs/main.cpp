@@ -6,11 +6,18 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:24:41 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 02:39:18 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 03:29:38 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @brief Inclusion du fichier d'en-tête de la classe Bureaucrat
+ */
 #include "../incs/Bureaucrat.hpp"
+
+/**
+ * @brief Inclusion de la bibliothèque standard pour les flux d'entrée/sortie
+ */
 #include <iostream>
 
 /**

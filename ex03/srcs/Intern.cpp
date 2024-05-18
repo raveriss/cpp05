@@ -6,14 +6,33 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:47:28 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 03:01:02 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 03:59:59 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @brief Inclusion du fichier d'en-tête de la classe Intern
+ */
 #include "../incs/Intern.hpp"
+
+/**
+ * @brief Inclusion du fichier d'en-tête de la classe ShrubberyCreationForm
+ */
 #include "../incs/ShrubberyCreationForm.hpp"
+
+/**
+ * @brief Inclusion du fichier d'en-tête de la classe RobotomyRequestForm
+ */
 #include "../incs/RobotomyRequestForm.hpp"
+
+/**
+ * @brief Inclusion du fichier d'en-tête de la classe PresidentialPardonForm
+ */
 #include "../incs/PresidentialPardonForm.hpp"
+
+/**
+ * @brief Inclusion de la bibliothèque standard pour les flux d'entrée/sortie
+ */
 #include <iostream>
 
 /**
