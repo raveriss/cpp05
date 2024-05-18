@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:24:41 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 03:29:38 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 00:12:36 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int main()
 	Bureaucrat *original = NULL;
 	Bureaucrat *copy = NULL;
 
-	/*
+	/**
 	* TEST CREATION OF BUREAUCRAT WITH VALID GRADE
 	*/
 	std::cout << CYAN << "TEST CREATION OF BUREAUCRAT WITH VALID GRADE:" << NC  << std::endl;
@@ -65,7 +65,7 @@ int main()
 		ASSERT_TEST(false, "Should not throw an exception here.");
 	}
 
-	/*
+	/**
 	* TEST CREATION OF BUREAUCRAT WITH TOO HIGH GRADE
 	*/
 	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH TOO HIGH GRADE:" << NC << std::endl;
@@ -87,7 +87,7 @@ int main()
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
 
-	/*
+	/**
 	* TEST CREATION OF BUREAUCRAT WITH TOO LOW GRADE
 	*/
 	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH TOO LOW GRADE:" << NC << std::endl;
@@ -109,7 +109,7 @@ int main()
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
 
-	/*
+	/**
 	* TEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE
 	*/
 	std::cout << CYAN << "\nTEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE:" << NC << std::endl;
@@ -137,7 +137,7 @@ int main()
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
 
-	/*
+	/**
 	* TEST COPY CONSTRUCTOR
 	*/
 	std::cout << CYAN << "\nTEST COPY CONSTRUCTOR:" << NC << std::endl;
@@ -168,7 +168,7 @@ int main()
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
 
-	/*
+	/**
 	* TEST ASSIGNMENT OPERATOR
 	*/
 	std::cout << CYAN << "\nTEST ASSIGNMENT OPERATOR:" << NC << std::endl;

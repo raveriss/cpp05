@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:06 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 03:50:17 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 00:15:13 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
  */
 class AForm;
 
-/*
+/**
  * @brief Classe représentant un bureaucrate
  */
 class Bureaucrat

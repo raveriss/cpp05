@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:24:41 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 03:46:59 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 00:14:46 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int main()
 		ASSERT_TEST(false, "Should not throw an exception here.");
 	}
 
-	/*
+	/**
 	* TEST CREATION OF BUREAUCRAT WITH TOO HIGH GRADE
 	*/
 	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH TOO HIGH GRADE:" << NC << std::endl;
@@ -87,7 +87,7 @@ int main()
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
 
-	/*
+	/**
 	* TEST CREATION OF BUREAUCRAT WITH TOO LOW GRADE
 	*/
 	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH TOO LOW GRADE:" << NC << std::endl;
@@ -109,7 +109,7 @@ int main()
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
 
-	/*
+	/**
 	* TEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE
 	*/
 	std::cout << CYAN << "\nTEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE:" << NC << std::endl;
@@ -137,7 +137,7 @@ int main()
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
 
-	/*
+	/**
 	* TEST COPY CONSTRUCTOR
 	*/
 	std::cout << CYAN << "\nTEST COPY CONSTRUCTOR:" << NC << std::endl;
@@ -168,7 +168,7 @@ int main()
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
 
-	/*
+	/**
 	* TEST ASSIGNMENT OPERATOR
 	*/
 	std::cout << CYAN << "\nTEST ASSIGNMENT OPERATOR:" << NC << std::endl;
@@ -202,7 +202,7 @@ int main()
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
 
-	/*
+	/**
 	* TEST CREATION OF FORM
 	*/
     std::cout << CYAN << "\nTEST CREATION OF FORM:" << NC << std::endl;
@@ -222,7 +222,7 @@ int main()
         ASSERT_TEST(false, "Should not throw an exception here.");
     }
 
-	/*
+	/**
 	* TEST SIGNING FORM WITH SUFFICIENT GRADE
 	*/
     std::cout << CYAN << "\nTEST SIGNING FORM WITH SUFFICIENT GRADE:" << NC << std::endl;
@@ -243,7 +243,7 @@ int main()
         ASSERT_TEST(false, "No exception should be thrown here.");
     }
 
-	/*
+	/**
 	* TEST SIGNING FORM WITH INSUFFICIENT GRADE
 	*/
     std::cout << CYAN << "\nTEST SIGNING FORM WITH INSUFFICIENT GRADE:" << NC << std::endl;
@@ -269,7 +269,7 @@ int main()
         ASSERT_TEST(false, "Unhandled exception type.");
     }
 
-	/*
+	/**
 	* TEST SIGNING FORM WITH TWO BUREAUCRATS WITH SAME GRADE
 	*/
     std::cout << CYAN << "\nTEST SIGNING FORM WITH TWO BUREAUCRATS WITH SAME GRADE:" << NC << std::endl;
@@ -303,7 +303,7 @@ int main()
         ASSERT_TEST(false, "No exception should be thrown here.");
     }
 
-	/*
+	/**
 	* TEST MULTIPLE SIGNING ATTEMPTS ON A FORM
 	*/
     std::cout << CYAN << "\nTEST MULTIPLE SIGNING ATTEMPTS ON A FORM:" << NC << std::endl;

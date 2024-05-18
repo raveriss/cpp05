@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:01:43 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 04:16:25 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 00:31:30 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ class AForm
 			public:
 				const char * what() const throw();
 		};
-
 };
 
 /* AFORM.HPP */

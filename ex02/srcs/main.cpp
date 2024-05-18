@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 03:38:25 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 03:44:02 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 00:17:00 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int main()
 	Bureaucrat *original = NULL;
 	Bureaucrat *copy = NULL;
 
-	/*
+	/**
 	* TEST CREATION OF BUREAUCRAT WITH VALID GRADE
 	*/
 	std::cout << CYAN << "TEST CREATION OF BUREAUCRAT WITH VALID GRADE:" << NC  << std::endl;
@@ -76,7 +76,7 @@ int main()
 		ASSERT_TEST(false, "Should not throw an exception here.");
 	}
 
-	/*
+	/**
 	* TEST CREATION OF BUREAUCRAT WITH TOO HIGH GRADE
 	*/
 	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH TOO HIGH GRADE:" << NC << std::endl;
@@ -98,7 +98,7 @@ int main()
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
 
-	/*
+	/**
 	* TEST CREATION OF BUREAUCRAT WITH TOO LOW GRADE
 	*/
 	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH TOO LOW GRADE:" << NC << std::endl;
@@ -120,7 +120,7 @@ int main()
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
 
-	/*
+	/**
 	* TEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE
 	*/
 	std::cout << CYAN << "\nTEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE:" << NC << std::endl;
@@ -148,7 +148,7 @@ int main()
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
 
-	/*
+	/**
 	* TEST COPY CONSTRUCTOR
 	*/
 	std::cout << CYAN << "\nTEST COPY CONSTRUCTOR:" << NC << std::endl;
@@ -179,7 +179,7 @@ int main()
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
 
-	/*
+	/**
 	* TEST ASSIGNMENT OPERATOR
 	*/
 	std::cout << CYAN << "\nTEST ASSIGNMENT OPERATOR:" << NC << std::endl;
@@ -189,7 +189,7 @@ int main()
 		copy = new Bureaucrat("Second", 100);
 		std::cout <<  BLUE << "Before assignment:" << NC << std::endl << *original << *copy << std::endl;
 
-		/*
+		/**
 		* Using assignment operator
 		*/
 		*copy = *original;
@@ -213,7 +213,7 @@ int main()
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
 
-    /*
+    /**
     * TEST BUREAUCRAT CREATION AND FORM EXECUTION
     */
     std::cout << std::endl << CYAN << "TEST BUREAUCRAT CREATION AND FORM EXECUTION:" << NC << std::endl;
@@ -245,7 +245,7 @@ int main()
         ASSERT_TEST(false, "Exception should not be thrown.");
     }
 
-    /*
+    /**
     * TEST GETTERS IN AForm
     */
     std::cout << CYAN << "\nTEST GETTERS IN AForm:" << NC << std::endl;
@@ -262,13 +262,13 @@ int main()
         ASSERT_TEST(false, "Exception should not be thrown during getters tests.");
     }
 
-    /*
+    /**
     * TEST AForm CLASS NAME
     */
     std::cout << CYAN << "\nTEST AForm CLASS NAME:" << NC << std::endl;
     ASSERT_TEST(std::string(typeid(AForm).name()).find("AForm") != std::string::npos, "AForm class name is correct.");
 
-    /*
+    /**
     * TEST ShrubberyCreationForm REQUIREMENTS
     */
     std::cout << CYAN << "\nTEST ShrubberyCreationForm REQUIREMENTS:" << NC << std::endl;
@@ -283,7 +283,7 @@ int main()
         ASSERT_TEST(false, "ShrubberyCreationForm constructor threw an exception.");
     }
 
-    /*
+    /**
     * TEST ShrubberyCreationForm FILE CREATION
     */
     std::cout << CYAN << "\nTEST ShrubberyCreationForm:" << NC << std::endl;
@@ -316,7 +316,7 @@ int main()
         ASSERT_TEST(false, "Exception should not be thrown during Shrubbery creation/execution.");
     }
 
-    /*
+    /**
     * TEST RobotomyRequestForm REQUIREMENTS
     */
     std::cout << CYAN << "\nTEST RobotomyRequestForm REQUIREMENTS:" << NC << std::endl;
@@ -331,7 +331,7 @@ int main()
         ASSERT_TEST(false, "RobotomyRequestForm constructor threw an exception.");
     }
 
-    /*
+    /**
     * TEST PresidentialPardonForm REQUIREMENTS
     */
     std::cout << CYAN << "\nTEST PresidentialPardonForm REQUIREMENTS:" << NC << std::endl;

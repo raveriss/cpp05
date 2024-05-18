@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 03:32:41 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 00:09:58 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
  */
 #include "../incs/ShrubberyCreationForm.hpp"
 
-/*
+/**
  * @brief Constructeur par défaut de la classe ShrubberyCreationForm
  */
 ShrubberyCreationForm::ShrubberyCreationForm()
@@ -69,7 +69,7 @@ void ShrubberyCreationForm::executeAction() const
     */
     if (stat(filename.c_str(), &fileStat) == 0 && (fileStat.st_mode & S_IWUSR) == 0)
     {
-        /* 
+        /** 
         * Fichier existant et non accessible en écriture
         */
         std::cout << "File " << baseFilename << " already exists and is not writable. \n";

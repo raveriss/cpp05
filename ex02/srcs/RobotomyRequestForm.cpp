@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:09 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 03:35:29 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 00:19:11 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ RobotomyRequestForm & RobotomyRequestForm::operator = (const RobotomyRequestForm
 RobotomyRequestForm::~RobotomyRequestForm()
 {}
 
-/*
+/**
  * @brief Exécute l'action spécifique de RobotomyRequestForm
  */
 void RobotomyRequestForm::executeAction() const
