@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:58:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 01:35:19 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 02:51:59 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,31 @@
 /**
  * @brief Constructeur par défaut de la classe PresidentialPardonForm
  */
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), target("") {}
+PresidentialPardonForm::PresidentialPardonForm()
+: AForm("PresidentialPardonForm", 25, 5), target("")
+{}
 
 /**
  * @brief Constructeur avec paramètre de la classe PresidentialPardonForm
  */
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialPardonForm", 25, 5), target(target) {}
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
+: AForm("PresidentialPardonForm", 25, 5), target(target)
+{}
 
 /**
  * @brief Constructeur de copie de la classe PresidentialPardonForm
  */
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : AForm(other), target(other.target) {}
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
+: AForm(other), target(other.target)
+{}
 
 /**
  * @brief Opérateur d'affectation de la classe PresidentialPardonForm
  */
-PresidentialPardonForm & PresidentialPardonForm::operator = (const PresidentialPardonForm & other) {
-    if (this != & other) {
+PresidentialPardonForm & PresidentialPardonForm::operator = (const PresidentialPardonForm & other)
+{
+    if (this != & other)
+    {
         AForm::operator=(other);
         target = other.target;
     }
@@ -42,12 +50,14 @@ PresidentialPardonForm & PresidentialPardonForm::operator = (const PresidentialP
 /**
  * @brief Destructeur de la classe PresidentialPardonForm
  */
-PresidentialPardonForm::~PresidentialPardonForm() {}
+PresidentialPardonForm::~PresidentialPardonForm()
+{}
 
 /**
  * @brief Exécute l'action spécifique de PresidentialPardonForm
  */
-void PresidentialPardonForm::executeAction() const {
+void PresidentialPardonForm::executeAction() const
+{
     std::cout << target << " has been pardoned by Zaphod Beeblebrox.\n";
 }
 

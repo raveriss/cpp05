@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 01:28:12 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 02:56:15 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 /**
  * @brief Classe représentant un formulaire de demande de robotomie, dérivée de AForm
  */
-class RobotomyRequestForm : public AForm {
+class RobotomyRequestForm : public AForm
+{
     private:
         std::string target;
 

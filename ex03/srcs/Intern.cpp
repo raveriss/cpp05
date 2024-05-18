@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:47:28 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 01:37:23 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 03:01:02 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,33 +19,38 @@
 /**
  * @brief Constructeur par défaut de la classe Intern
  */
-Intern::Intern() {}
+Intern::Intern()
+{}
 
 /**
  * @brief Constructeur de copie de la classe Intern
  */
-Intern::Intern(const Intern & other) {
+Intern::Intern(const Intern & other)
+{
     *this = other;
 }
 
 /**
  * @brief Constructeur par copie et opérateur d'affectation de la classe Intern
  */
-Intern & Intern::operator = (const Intern & other) {
-    if (this != & other) {
-    }
+Intern & Intern::operator = (const Intern & other)
+{
+    if (this != & other)
+    {}
     return *this;
 }
 
 /**
  * @brief Destructeur de la classe Intern
  */
-Intern::~Intern() {}
+Intern::~Intern()
+{}
 
 /**
  * @brief Crée un formulaire en fonction du nom et de la cible spécifiés
  */
-AForm * Intern::makeForm(const std::string & formName, const std::string & target) const {
+AForm * Intern::makeForm(const std::string & formName, const std::string & target) const
+{
     std::string formTypes[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
     AForm* (Intern::*formCreators[3])(const std::string&) const = {
         &Intern::createShrubberyCreation,
@@ -53,8 +58,10 @@ AForm * Intern::makeForm(const std::string & formName, const std::string & targe
         &Intern::createPresidentialPardon
     };
 
-    for (int i = 0; i < 3; i++) {
-        if (formName == formTypes[i]) {
+    for (int i = 0; i < 3; i++)
+    {
+        if (formName == formTypes[i])
+        {
             AForm* form = (this->*formCreators[i])(target);
             std::cout << "Intern creates " << form->getName() << std::endl;
             return form;
@@ -68,14 +75,16 @@ AForm * Intern::makeForm(const std::string & formName, const std::string & targe
 /**
  * @brief Crée un formulaire ShrubberyCreation avec la cible spécifiée
  */
-AForm * Intern::createShrubberyCreation(const std::string & target) const {
+AForm * Intern::createShrubberyCreation(const std::string & target) const
+{
     return new ShrubberyCreationForm(target);
 }
 
 /**
  * @brief Crée un formulaire RobotomyRequest avec la cible spécifiée
  */
-AForm * Intern::createRobotomyRequest(const std::string & target) const {
+AForm * Intern::createRobotomyRequest(const std::string & target) const
+{
     return new RobotomyRequestForm(target);
 }
 
@@ -83,7 +92,8 @@ AForm * Intern::createRobotomyRequest(const std::string & target) const {
  * @brief Crée un formulaire PresidentialPardon avec la cible spécifiée
  */
 
-AForm * Intern::createPresidentialPardon(const std::string & target) const {
+AForm * Intern::createPresidentialPardon(const std::string & target) const
+{
     return new PresidentialPardonForm(target);
 }
 

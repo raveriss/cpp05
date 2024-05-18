@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 01:03:06 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 03:15:33 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,31 @@
 /**
  * @brief Constructeur par défaut de la classe ShrubberyCreationForm
  */
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), target("") {}
+ShrubberyCreationForm::ShrubberyCreationForm()
+: AForm("ShrubberyCreationForm", 145, 137), target("")
+{}
 
 /**
  * @brief Constructeur avec paramètre de la classe ShrubberyCreationForm
  */
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target) : AForm("ShrubberyCreationForm", 145, 137), target(target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target)
+: AForm("ShrubberyCreationForm", 145, 137), target(target)
+{}
 
 /**
  * @brief Constructeur de copie de la classe ShrubberyCreationForm
  */
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & other) : AForm(other), target(other.target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & other)
+: AForm(other), target(other.target)
+{}
 
 /**
  * @brief Opérateur d'affectation de la classe ShrubberyCreationForm
  */
-ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreationForm & other) {
-    if (this != & other) {
+ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreationForm & other)
+{
+    if (this != & other)
+    {
         AForm::operator=(other);
         target = other.target;
     }
@@ -41,12 +49,14 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreati
 /**
  * @brief Destructeur de la classe ShrubberyCreationForm
  */
-ShrubberyCreationForm::~ShrubberyCreationForm() {}
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{}
 
 /**
  * @brief Exécute l'action spécifique de ShrubberyCreationForm
  */
-void ShrubberyCreationForm::executeAction() const {
+void ShrubberyCreationForm::executeAction() const
+{
     std::string baseFilename = target + "_shrubbery";
     std::string filename = baseFilename;
     struct stat fileStat;
@@ -54,7 +64,8 @@ void ShrubberyCreationForm::executeAction() const {
     /**
      * Check if base file exists and its permissions
     */
-    if (stat(filename.c_str(), &fileStat) == 0 && (fileStat.st_mode & S_IWUSR) == 0) { 
+    if (stat(filename.c_str(), &fileStat) == 0 && (fileStat.st_mode & S_IWUSR) == 0)
+    { 
         /**
          * Fichier existant et non accessible en écriture
         */
@@ -62,7 +73,8 @@ void ShrubberyCreationForm::executeAction() const {
         int counter = 1;
         bool fileFound = false;
 
-        while (!fileFound) {
+        while (!fileFound)
+        {
             std::ostringstream oss;
             oss << baseFilename << "_" << counter++;
             filename = oss.str();
@@ -70,19 +82,23 @@ void ShrubberyCreationForm::executeAction() const {
             /**
              * Check if new filename exists
             */
-            if (stat(filename.c_str(), &fileStat) == 0) {
+            if (stat(filename.c_str(), &fileStat) == 0)
+            {
                 /**
                  * File exists, check its permissions
                 */
-                if ((fileStat.st_mode & S_IWUSR) == 0) {
+                if ((fileStat.st_mode & S_IWUSR) == 0)
                     std::cout << "File " << filename << " already exists and is not writable. \nTrying next suffix.\n";
-                } else {
+                else
+                {
                     /**
                      * File exists and is writable
                     */
                     fileFound = true;
                 }
-            } else {
+            }
+            else
+            {
                 /**
                  * File does not exist, can be created
                 */
@@ -105,9 +121,9 @@ void ShrubberyCreationForm::executeAction() const {
         file << "      ||\n";
         file.close();
         std::cout << "File " << filename << " created successfully." << std::endl;
-    } else {
-        std::cerr << "Failed to open file: " << filename << "\n";
     }
+    else
+        std::cerr << "Failed to open file: " << filename << "\n";
 }
 
 /* SHRUBBERYCREATIONFORM.CPP */

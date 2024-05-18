@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:02:19 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 02:16:06 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 02:35:08 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,16 @@
 /**
  * @brief Constructeur par défaut de la classe AForm
  */
-Form::Form() : _name(""), _isSigned(false), _gradeRequiredToSign(150), _gradeRequiredToExecute(150) {}
+Form::Form()
+: _name(""), _isSigned(false), _gradeRequiredToSign(150), _gradeRequiredToExecute(150)
+{}
 
 /**
  * @brief Constructeur avec paramètres de la classe Form
  */
 Form::Form(const std::string & name, int gradeToSign, int gradeToExecute)
-    : _name(name), _isSigned(false), _gradeRequiredToSign(gradeToSign), _gradeRequiredToExecute(gradeToExecute) {
+: _name(name), _isSigned(false), _gradeRequiredToSign(gradeToSign), _gradeRequiredToExecute(gradeToExecute)
+{
     if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
     if (gradeToSign > 150 || gradeToExecute > 150)
@@ -32,71 +35,76 @@ Form::Form(const std::string & name, int gradeToSign, int gradeToExecute)
  * @brief Constructeur par copie de la classe AForm
  */
 Form::Form(const Form & src)
-    : _name(src._name), _isSigned(src._isSigned), _gradeRequiredToSign(src._gradeRequiredToSign), _gradeRequiredToExecute(src._gradeRequiredToExecute) {
-}
+: _name(src._name), _isSigned(src._isSigned), _gradeRequiredToSign(src._gradeRequiredToSign), _gradeRequiredToExecute(src._gradeRequiredToExecute)
+{}
 
 /**
  * @brief Opérateur d'affectation de la classe AForm
  */
-Form& Form::operator=(const Form & rhs) {
-    if (this != & rhs) {
+Form& Form::operator=(const Form & rhs)
+{
+    if (this != & rhs)
         this->_isSigned = rhs._isSigned;
-    }
     return *this;
 }
 
 /**
  * @brief Destructeur de la classe AForm
  */
-Form::~Form() {
-}
+Form::~Form()
+{}
 
 /**
  * @brief Renvoie le nom du formulaire
  */
-const std::string & Form::getName() const {
+const std::string & Form::getName() const
+{
     return _name;
 }
 
 /**
  * @brief Renvoie l'état de signature du formulaire
  */
-bool Form::getIsSigned() const {
+bool Form::getIsSigned() const
+{
     return _isSigned;
 }
 
 /**
  * @brief Renvoie le grade requis pour signer le formulaire
  */
-int Form::getGradeRequiredToSign() const {
+int Form::getGradeRequiredToSign() const
+{
     return _gradeRequiredToSign;
 }
 
 /**
  * @brief Renvoie le grade requis pour exécuter le formulaire
  */
-int Form::getGradeRequiredToExecute() const {
+int Form::getGradeRequiredToExecute() const
+{
     return _gradeRequiredToExecute;
 }
 
 /**
  * @brief Signe le formulaire après vérification du grade et des exceptions
  */
-void Form::beSigned(const Bureaucrat & bureaucrat) {
-    if (_isSigned) {
+void Form::beSigned(const Bureaucrat & bureaucrat)
+
+{
+    if (_isSigned)
         throw std::logic_error("Form already signed.");
-    }
-    if (bureaucrat.getGrade() <= _gradeRequiredToSign) {
+    if (bureaucrat.getGrade() <= _gradeRequiredToSign)
         _isSigned = true;
-    } else {
+    else
         throw GradeTooLowException();
-    }
 }
 
 /**
  * @brief Surcharge de l'opérateur de flux pour la classe Form
  */
-std::ostream& operator<<(std::ostream & os, const Form & form) {
+std::ostream& operator<<(std::ostream & os, const Form & form)
+{
     os << form.getName() << ", Form grade required to sign: " << form.getGradeRequiredToSign()
        << ", Form grade required to execute: " << form.getGradeRequiredToExecute()
        << ", Is signed: " << (form.getIsSigned() ? "Yes" : "No");

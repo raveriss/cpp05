@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:24:41 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 01:55:43 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 02:39:18 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@
 /**
  * @brief Point d'entrée principal du programme
  */
-int main() {
+int main()
+{
 	Bureaucrat *original = NULL;
 	Bureaucrat *copy = NULL;
 
@@ -43,13 +44,16 @@ int main() {
 	* TEST CREATION OF BUREAUCRAT WITH VALID GRADE
 	*/
 	std::cout << CYAN << "TEST CREATION OF BUREAUCRAT WITH VALID GRADE:" << NC  << std::endl;
-	try {
+	try
+	{
 		original = new Bureaucrat("John Doe", 75);
 		std::cout << *original;
 		ASSERT_TEST(original->getGrade() == 75, "Grade 75.");
 		delete original;
 		original = NULL;
-	} catch (std::exception& e) {
+	}
+	catch (std::exception& e)
+	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(false, "Should not throw an exception here.");
 	}
@@ -58,16 +62,21 @@ int main() {
 	* TEST CREATION OF BUREAUCRAT WITH TOO HIGH GRADE
 	*/
 	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH TOO HIGH GRADE:" << NC << std::endl;
-	try {
+	try
+	{
 		original = new Bureaucrat("Jane Doe", 0);
 		std::cout << *original;
 		delete original;
 		original = NULL;
 		ASSERT_TEST(false, "Should have thrown GradeTooHighException.");
-	} catch (Bureaucrat::GradeTooHighException& e) {
+	}
+	catch (Bureaucrat::GradeTooHighException& e)
+	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(true, "Correctly threw GradeTooHighException.");
-	} catch (...) {
+	}
+	catch (...)
+	{
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
 
@@ -75,16 +84,21 @@ int main() {
 	* TEST CREATION OF BUREAUCRAT WITH TOO LOW GRADE
 	*/
 	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH TOO LOW GRADE:" << NC << std::endl;
-	try {
+	try
+	{
 		original = new Bureaucrat("Jim Doe", 151);
 		std::cout << *original;
 		delete original;
 		original = NULL;
 		ASSERT_TEST(false, "Should have thrown GradeTooLowException.");
-	} catch (Bureaucrat::GradeTooLowException& e) {
+	}
+	catch (Bureaucrat::GradeTooLowException& e)
+	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(true, "Correctly threw GradeTooLowException.");
-	} catch (...) {
+	}
+	catch (...)
+	{
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
 
@@ -92,7 +106,8 @@ int main() {
 	* TEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE
 	*/
 	std::cout << CYAN << "\nTEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE:" << NC << std::endl;
-	try {
+	try
+	{
 		original = new Bureaucrat("Julia Doe", 10);
 		std::cout << *original;
 		original->incrementGrade();
@@ -108,7 +123,9 @@ int main() {
 
 		delete original;
 		original = NULL;
-	} catch (std::exception& e) {
+	}
+	catch (std::exception& e)
+	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
@@ -117,7 +134,8 @@ int main() {
 	* TEST COPY CONSTRUCTOR
 	*/
 	std::cout << CYAN << "\nTEST COPY CONSTRUCTOR:" << NC << std::endl;
-	try {		
+	try
+	{		
 		original = new Bureaucrat("Bureaucrat", 50);
 		std::cout << "Original " << *original;
 
@@ -136,7 +154,9 @@ int main() {
 
 		delete original;
 		delete copy;
-	} catch (std::exception& e) {
+	}
+	catch (std::exception& e)
+	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
@@ -145,7 +165,8 @@ int main() {
 	* TEST ASSIGNMENT OPERATOR
 	*/
 	std::cout << CYAN << "\nTEST ASSIGNMENT OPERATOR:" << NC << std::endl;
-	try {
+	try
+	{
 		original = new Bureaucrat("First", 75);
 		copy = new Bureaucrat("Second", 100);
 		std::cout <<  BLUE << "Before assignment:" << NC << std::endl << *original << *copy << std::endl;
@@ -167,7 +188,9 @@ int main() {
 
 		delete original;
 		delete copy;
-	} catch (std::exception& e) {
+	}
+	catch (std::exception& e)
+	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}

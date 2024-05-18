@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:01:43 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 02:24:35 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 02:44:08 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class Bureaucrat;
 /**
  * @brief Classe abstraite représentant un formulaire avec des informations de signature et d'exécution
  */
-class AForm {
+class AForm
+{
     private:
         const std::string _name;
         bool _isSigned;
@@ -49,17 +50,20 @@ class AForm {
         void beSigned(const Bureaucrat & bureaucrat);
         void execute(const Bureaucrat & executor) const;
 
-        class GradeTooHighException : public std::exception {
-        public:
-            const char * what() const throw();
+        class GradeTooHighException : public std::exception
+        {
+            public:
+                const char * what() const throw();
         };
 
-        class GradeTooLowException : public std::exception {
+        class GradeTooLowException : public std::exception
+        {
             public:
                 const char * what() const throw();
         };
         
-        class FormNotSignedException : public std::exception {
+        class FormNotSignedException : public std::exception
+        {
             public:
                 const char * what() const throw();
         };

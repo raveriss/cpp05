@@ -30,7 +30,8 @@
 /**
  * @brief Point d'entrée principal du programme
  */
-int main() {
+int main()
+{
 
     Intern intern;
     Bureaucrat ceo("CEO", 1);
@@ -42,13 +43,16 @@ int main() {
      * TEST CREATION OF BUREAUCRAT WITH VALID GRADE
     */
 	std::cout << CYAN << "TEST CREATION OF BUREAUCRAT WITH VALID GRADE:" << NC  << std::endl;
-	try {
+	try
+    {
 		bureaucrat = new Bureaucrat("John Doe", 75);
 		std::cout << *bureaucrat;
 		ASSERT_TEST(bureaucrat->getGrade() == 75, "Grade 75.");
 		delete bureaucrat;
 		bureaucrat = NULL;
-	} catch (std::exception& e) {
+	}
+    catch (std::exception& e)
+    {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(false, "Should not throw an exception here.");
 	}
@@ -57,15 +61,20 @@ int main() {
      * TEST CREATION OF BUREAUCRAT WITH TOO HIGH GRADE
     */
 	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH TOO HIGH GRADE:" << NC << std::endl;
-	try {
+	try
+    {
 		bureaucrat = new Bureaucrat("Jane Doe", 0);
 		std::cout << *bureaucrat;
 		delete bureaucrat;
 		bureaucrat = NULL;
-	} catch (Bureaucrat::GradeTooHighException& e) {
+	}
+    catch (Bureaucrat::GradeTooHighException& e)
+    {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(true, "Correctly threw GradeTooHighException.");
-	} catch (...) {
+	}
+    catch (...)
+    {
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
 
@@ -73,15 +82,20 @@ int main() {
      * TEST CREATION OF BUREAUCRAT WITH TOO LOW GRADE:
     */
 	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH TOO LOW GRADE:" << NC << std::endl;
-	try {
+	try
+    {
 		bureaucrat = new Bureaucrat("Jim Doe", 151);
 		std::cout << *bureaucrat;
 		delete bureaucrat;
 		bureaucrat = NULL;
-	} catch (Bureaucrat::GradeTooLowException& e) {
+	}
+    catch (Bureaucrat::GradeTooLowException& e)
+    {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(true, "Correctly threw GradeTooLowException.");
-	} catch (...) {
+	}
+    catch (...)
+    {
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
 
@@ -89,7 +103,8 @@ int main() {
      * TEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE
     */
 	std::cout << CYAN << "\nTEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE:" << NC << std::endl;
-	try {
+	try
+    {
 		bureaucrat = new Bureaucrat("Julia Doe", 10);
 		std::cout << *bureaucrat;
 		bureaucrat->incrementGrade();
@@ -105,7 +120,9 @@ int main() {
 
 		delete bureaucrat;
 		bureaucrat = NULL;
-	} catch (std::exception& e) {
+	}
+    catch (std::exception& e)
+    {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
@@ -114,7 +131,8 @@ int main() {
      * TEST FOR COPY CONSTRUCTOR
     */
 	std::cout << CYAN << "\nTEST COPY CONSTRUCTOR:" << NC << std::endl;
-	try {
+	try
+    {
 		bureaucrat = new Bureaucrat("Original Bureaucrat", 50);
 		std::cout << "Original Bureaucrat: " << *bureaucrat;
 
@@ -133,7 +151,9 @@ int main() {
 
 		delete bureaucrat;
 		delete copyBureaucrat;
-	} catch (std::exception& e) {
+	}
+    catch (std::exception& e)
+    {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
@@ -142,7 +162,8 @@ int main() {
      * TEST FOR ASSIGNMENT OPERATOR
     */
 	std::cout << CYAN << "\nTEST ASSIGNMENT OPERATOR:" << NC << std::endl;
-	try {
+	try
+    {
 		bureaucrat = new Bureaucrat("First Bureaucrat", 75);
 		copyBureaucrat = new Bureaucrat("Second Bureaucrat", 100);
 		std::cout <<  BLUE << "Before assignment:" << NC << "\nOriginal: " << *bureaucrat << "Copy: " << *copyBureaucrat << std::endl;
@@ -166,7 +187,9 @@ int main() {
 
 		delete bureaucrat;
 		delete copyBureaucrat;
-	} catch (std::exception& e) {
+	}
+    catch (std::exception& e)
+    {
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
@@ -175,7 +198,8 @@ int main() {
     * TEST BUREAUCRAT CREATION AND FORM EXECUTION
     */
     std::cout << std::endl << CYAN << "TEST BUREAUCRAT CREATION AND FORM EXECUTION:" << NC << std::endl;
-    try {
+    try
+    {
         Bureaucrat bob("Bob", 1);
         ShrubberyCreationForm shrub("home");
         RobotomyRequestForm robot("Alice");
@@ -195,7 +219,9 @@ int main() {
         bob.executeForm(pardon);
         ASSERT_TEST(pardon.getIsSigned(), "PresidentialPardonForm signed.");
         ASSERT_TEST(pardon.getIsSigned() && pardon.getGradeRequiredToExecute() >= bob.getGrade(), "PresidentialPardonForm executed.");
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
         std::cerr << "Exception: " << e.what() << std::endl;
         ASSERT_TEST(false, "Exception should not be thrown.");
     }
@@ -204,13 +230,16 @@ int main() {
     * TEST GETTERS IN AForm
     */
     std::cout << CYAN << "\nTEST GETTERS IN AForm:" << NC << std::endl;
-    try {
+    try
+    {
         ShrubberyCreationForm shrub("test");
         ASSERT_TEST(shrub.getName() == "ShrubberyCreationForm", "getName() works correctly.");
         ASSERT_TEST(!shrub.getIsSigned(), "getIsSigned() works correctly.");
         ASSERT_TEST(shrub.getGradeRequiredToSign() == 145, "getGradeRequiredToSign() works correctly.");
         ASSERT_TEST(shrub.getGradeRequiredToExecute() == 137, "getGradeRequiredToExecute() works correctly.");
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
         ASSERT_TEST(false, "Exception should not be thrown during getters tests.");
     }
 
@@ -224,11 +253,14 @@ int main() {
     * TEST ShrubberyCreationForm REQUIREMENTS
     */
     std::cout << CYAN << "\nTEST ShrubberyCreationForm REQUIREMENTS:" << NC << std::endl;
-    try {
+    try
+    {
         ShrubberyCreationForm shrub("home");
         ASSERT_TEST(shrub.getGradeRequiredToSign() == 145, "ShrubberyCreationForm sign grade is 145.");
         ASSERT_TEST(shrub.getGradeRequiredToExecute() == 137, "ShrubberyCreationForm execute grade is 137.");
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
         ASSERT_TEST(false, "ShrubberyCreationForm constructor threw an exception.");
     }
 
@@ -236,7 +268,8 @@ int main() {
     * TEST ShrubberyCreationForm FILE CREATION
     */
     std::cout << CYAN << "\nTEST ShrubberyCreationForm:" << NC << std::endl;
-    try {
+    try
+    {
         Bureaucrat bob("Bob", 1);
         ShrubberyCreationForm shrub("test_target");
         bob.signForm(shrub);
@@ -258,7 +291,9 @@ int main() {
         ASSERT_TEST(infile.good(), "Shrubbery file created using execute.");
         infile.close();
         std::remove("test_target_shrubbery");
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
         ASSERT_TEST(false, "Exception should not be thrown during Shrubbery creation/execution.");
     }
 
@@ -266,11 +301,14 @@ int main() {
     * TEST RobotomyRequestForm REQUIREMENTS
     */
     std::cout << CYAN << "\nTEST RobotomyRequestForm REQUIREMENTS:" << NC << std::endl;
-    try {
+    try
+    {
         RobotomyRequestForm robot("Alice");
         ASSERT_TEST(robot.getGradeRequiredToSign() == 72, "RobotomyRequestForm sign grade is 72.");
         ASSERT_TEST(robot.getGradeRequiredToExecute() == 45, "RobotomyRequestForm execute grade is 45.");
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
         ASSERT_TEST(false, "RobotomyRequestForm constructor threw an exception.");
     }
 
@@ -278,11 +316,14 @@ int main() {
     * TEST PresidentialPardonForm REQUIREMENTS
     */
     std::cout << CYAN << "\nTEST PresidentialPardonForm REQUIREMENTS:" << NC << std::endl;
-    try {
+    try
+    {
         PresidentialPardonForm pardon("Charlie");
         ASSERT_TEST(pardon.getGradeRequiredToSign() == 25, "PresidentialPardonForm sign grade is 25.");
         ASSERT_TEST(pardon.getGradeRequiredToExecute() == 5, "PresidentialPardonForm execute grade is 5.");
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
         ASSERT_TEST(false, "PresidentialPardonForm constructor threw an exception.");
     }
 
@@ -307,16 +348,20 @@ int main() {
     const char* formTypes[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
     const char* targets[] = {"garden", "employee", "criminal"};
 
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 3; ++i)
+    {
         form = intern.makeForm(formTypes[i], targets[i]);
-        if (form) {
+        if (form)
+        {
             std::cout << "Created: " << form->getName() << " for " << targets[i] << std::endl;
             ceo.signForm(*form);
             ceo.executeForm(*form);
             ASSERT_TEST(form->getIsSigned(), "Form be signed");
             ASSERT_TEST(form->execute(ceo), "Form executed without error");
             delete form;
-        } else {
+        }
+        else
+        {
             std::cout << "Failed to create form: " << formTypes[i] << std::endl;
         }
         std::cout << std::endl;
@@ -335,7 +380,8 @@ int main() {
     std::cout << std::endl << CYAN << "TESTING INVALID FORM NAME HANDLING" << NC << std::endl;
     const char* invalidNames[] = {"", "robomancy request", "presidental party"};
 
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 3; ++i)
+    {
         form = intern.makeForm(invalidNames[i], "target");
         ASSERT_TEST(!form, "Invalid form name, does not create form");
     }

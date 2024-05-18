@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:46 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 01:29:58 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 02:44:59 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 /**
  * @brief Classe représentant un formulaire de création d'arbustes, dérivée de AForm
  */
-class ShrubberyCreationForm : public AForm {
+class ShrubberyCreationForm : public AForm
+{
     private:
         std::string target;
 

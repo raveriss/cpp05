@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:01:43 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 02:07:02 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 02:31:56 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class Bureaucrat;
 /**
  * @brief Déclaration de la classe Form avec gestion des signatures et exceptions de grade
  */
-
-class Form {
+class Form
+{
     private:
         const std::string _name;
         bool _isSigned;
@@ -46,18 +46,22 @@ class Form {
 
         void beSigned(const Bureaucrat & bureaucrat);
 
-        class GradeTooHighException : public std::exception {
-        public:
-            const char * what() const throw() {
-                return "Grade too high";
-            }
+        class GradeTooHighException : public std::exception
+        {
+            public:
+                const char * what() const throw()
+                {
+                    return "Grade too high";
+                }
         };
 
-        class GradeTooLowException : public std::exception {
-        public:
-            const char * what() const throw() {
-                return "Grade too low";
-            }
+        class GradeTooLowException : public std::exception
+        {
+            public:
+                const char * what() const throw()
+                {
+                    return "Grade too low";
+                }
         };
 
 };
