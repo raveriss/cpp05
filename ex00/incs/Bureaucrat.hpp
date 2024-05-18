@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:06 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 00:28:35 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 00:53:28 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,70 @@
 class Bureaucrat
 {
 	private:
+		/**
+		 * @brief Nom du bureaucrate
+		 * */
 		const std::string _name;
+
+		/**
+		 * @brief grade du bureaucrate
+		*/
 		int _grade;
 
 	public:
+		/**
+		 * @brief Constructeur par défaut de la classe Bureaucrat
+		 */
 		Bureaucrat();
+
+		/**
+		 * @brief Constructeur avec paramètres de la classe Bureaucrat
+		 */
 		Bureaucrat(const std::string & name, int grade);
+		
+		/**
+		 * @brief Constructeur de copie de la classe Bureaucrat
+		 */
 		Bureaucrat(const Bureaucrat & rootBureaucrat);
+
+		/**
+		 * @brief Opérateur d'affectation de la classe Bureaucrat
+		 */
 		Bureaucrat & operator = (const Bureaucrat & rootBureaucrat);
+
+		/**
+		 * @brief Destructeur de la classe Bureaucrat
+		 */
 		~Bureaucrat();
 
+		/**
+		 * @brief Obtient le nom du bureaucrate
+		 */
 		const std::string & getName() const;
+		
+		/**
+		 * @brief Obtient le grade du bureaucrate
+		 */
 		int getGrade() const;
+
+		/**
+		 * @brief Incrémente le grade du bureaucrate
+		 */
 		void incrementGrade();
+
+		/**
+		 * @brief Décrémente le grade du bureaucrate
+		 */
 		void decrementGrade();
 
+		/**
+		 * @brief Exception pour les grades trop élevés
+		 */
 		class GradeTooHighException : public std::exception
 		{
+			/**
+			 * @brief Message d'erreur pour les grades trop élevés
+			 */
 			public:
 				const char * what() const throw()
 				{
@@ -55,9 +102,15 @@ class Bureaucrat
 				}
 		};
 
+		/**
+		 * @brief Exception pour les grades trop bas
+		 */
 		class GradeTooLowException : public std::exception
 		{
 			public:
+				/**
+				 * @brief Message d'erreur pour les grades trop bas
+				 */
 				const char * what() const throw()
 				{
 					return "Grade too low";
