@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:06 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 22:55:19 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 01:04:17 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include <iostream>
 #include <stdexcept>
 
+/**
+ * @brief Classe représentant un bureaucrate
+ */
 class Bureaucrat {
 	private:
 		const std::string _name;
@@ -47,4 +50,9 @@ class Bureaucrat {
 		};
 };
 
+/**
+ * @brief Opérateur de sortie pour la classe Bureaucrat
+ */
 std::ostream & operator << (std::ostream & os, const Bureaucrat & b);
+
+/* BUREAUCRAT.HPP */

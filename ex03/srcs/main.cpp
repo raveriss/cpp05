@@ -8,10 +8,16 @@
 #include <typeinfo>
 #include "../incs/Intern.hpp"
 
+/**
+ * @brief Macro pour vérifier une expression et afficher un message de test passé/échoué
+ */
 #define ASSERT_TEST(expression, message) \
     if (expression) { std::cout << "\033[32m[TEST PASSED]\033[0m " << message << std::endl; } \
     else { std::cout << "\033[31m[TEST FAILED]\033[0m " << message << std::endl; }
 
+/**
+ * @brief Définitions des codes de couleur ANSI pour la sortie console
+ */
 #define GREY        "\033[0;30m"
 #define RED         "\033[0;31m"
 #define GREEN       "\033[0;32m"
@@ -21,6 +27,9 @@
 #define CYAN        "\033[0;36m"
 #define NC          "\033[0m"
 
+/**
+ * @brief Point d'entrée principal du programme
+ */
 int main() {
 
     Intern intern;
@@ -29,6 +38,9 @@ int main() {
 	Bureaucrat *bureaucrat = NULL;
 	Bureaucrat *copyBureaucrat = NULL;
 
+    /**
+     * TEST CREATION OF BUREAUCRAT WITH VALID GRADE
+    */
 	std::cout << CYAN << "TEST CREATION OF BUREAUCRAT WITH VALID GRADE:" << NC  << std::endl;
 	try {
 		bureaucrat = new Bureaucrat("John Doe", 75);
@@ -41,7 +53,9 @@ int main() {
 		ASSERT_TEST(false, "Should not throw an exception here.");
 	}
 
-
+    /**
+     * TEST CREATION OF BUREAUCRAT WITH TOO HIGH GRADE
+    */
 	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH TOO HIGH GRADE:" << NC << std::endl;
 	try {
 		bureaucrat = new Bureaucrat("Jane Doe", 0);
@@ -55,6 +69,9 @@ int main() {
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
 
+    /**
+     * TEST CREATION OF BUREAUCRAT WITH TOO LOW GRADE:
+    */
 	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH TOO LOW GRADE:" << NC << std::endl;
 	try {
 		bureaucrat = new Bureaucrat("Jim Doe", 151);
@@ -68,6 +85,9 @@ int main() {
 		ASSERT_TEST(false, "Wrong exception type caught.");
 	}
 
+    /**
+     * TEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE
+    */
 	std::cout << CYAN << "\nTEST INCREMENTING AND DECREMENTING BUREAUCRAT'S GRADE:" << NC << std::endl;
 	try {
 		bureaucrat = new Bureaucrat("Julia Doe", 10);
@@ -90,14 +110,16 @@ int main() {
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
 
-	// Test for Copy Constructor
+	/**
+     * TEST FOR COPY CONSTRUCTOR
+    */
 	std::cout << CYAN << "\nTEST COPY CONSTRUCTOR:" << NC << std::endl;
 	try {
 		bureaucrat = new Bureaucrat("Original Bureaucrat", 50);
 		std::cout << "Original Bureaucrat: " << *bureaucrat;
 
 		copyBureaucrat = new Bureaucrat(*bureaucrat);
-		std::cout << "    Copy Bureaucrat: " << *copyBureaucrat;
+		std::cout << "Copy Bureaucrat: " << *copyBureaucrat;
 
 		ASSERT_TEST(copyBureaucrat->getName() == bureaucrat->getName(), "Copy have the same name.");
 		ASSERT_TEST(copyBureaucrat->getGrade() == bureaucrat->getGrade(), "Copy have the same grade.");
@@ -116,16 +138,18 @@ int main() {
 		ASSERT_TEST(false, "No exception should be thrown here.");
 	}
 
-	// Test for Assignment Operator
+	/**
+     * TEST FOR ASSIGNMENT OPERATOR
+    */
 	std::cout << CYAN << "\nTEST ASSIGNMENT OPERATOR:" << NC << std::endl;
 	try {
 		bureaucrat = new Bureaucrat("First Bureaucrat", 75);
 		copyBureaucrat = new Bureaucrat("Second Bureaucrat", 100);
-		std::cout <<  BLUE << "Before assignment:" << NC << "\nOriginal: " << *bureaucrat << "   Copy: " << *copyBureaucrat << std::endl;
+		std::cout <<  BLUE << "Before assignment:" << NC << "\nOriginal: " << *bureaucrat << "Copy: " << *copyBureaucrat << std::endl;
 
 		*copyBureaucrat = *bureaucrat;  // Using assignment operator
 		std::cout << BLUE << "After assignment:" << NC << std::endl;
-		std::cout << " " << *bureaucrat;
+		std::cout << *bureaucrat;
 		std::cout << *copyBureaucrat;
 
 		ASSERT_TEST(copyBureaucrat->getName() == "Second Bureaucrat", "Name of copy unchanged.");
@@ -135,7 +159,7 @@ int main() {
 		std::cout << BLUE << "\nAfter incrementing Second Bureaucrat :" << NC << std::endl;
 
 		std::cout << *copyBureaucrat;
-		std::cout << " " << *bureaucrat;
+		std::cout << *bureaucrat;
 
 		ASSERT_TEST(copyBureaucrat->getGrade() == 74, "Grade of copy incremented.");
 		ASSERT_TEST(bureaucrat->getGrade() == 75, "Grade of original unchanged.");
@@ -217,14 +241,18 @@ int main() {
         ShrubberyCreationForm shrub("test_target");
         bob.signForm(shrub);
 
-        // Exécuter le formulaire avec executeForm
+        /**
+         * EXÉCUTER LE FORMULAIRE AVEC EXECUTEFORM
+        */
         bob.executeForm(shrub);
         std::ifstream infile("test_target_shrubbery");
         ASSERT_TEST(infile.good(), "Shrubbery file created using executeForm.");
         infile.close();
         std::remove("test_target_shrubbery");
 
-        // Exécuter le formulaire avec execute
+        /**
+         * EXÉCUTER LE FORMULAIRE AVEC EXECUTE
+        */
         shrub.execute(bob);
         infile.open("test_target_shrubbery");
         ASSERT_TEST(infile.good(), "Shrubbery file created using execute.");
@@ -271,9 +299,11 @@ int main() {
     // }
     // */
 
+    /**
+     * TESTING FORM CREATION BY INTERN
+    */
     std::cout << CYAN << "\nTESTING FORM CREATION BY INTERN" << NC << std::endl;
 
-    // Test: Creating each type of form and executing it
     const char* formTypes[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
     const char* targets[] = {"garden", "employee", "criminal"};
 
@@ -292,12 +322,16 @@ int main() {
         std::cout << std::endl;
     }
 
-    // Test: Error handling with an unknown form
+    /**
+     * TEST ERROR HANDLING WITH AN UNKNOWN FORM
+    */
     std::cout << CYAN << "TESTING ERROR HANDLING WITH UNKNOWN FORM" << NC << std::endl;
     form = intern.makeForm("unknown form", "nowhere");
     ASSERT_TEST(!form, "Unknown form not created");
 
-    // Test: Check Intern handling of invalid form names
+    /**
+     * TEST CHECK INTERN HANDLING OF INVALID FORM NAMES
+    */
     std::cout << std::endl << CYAN << "TESTING INVALID FORM NAME HANDLING" << NC << std::endl;
     const char* invalidNames[] = {"", "robomancy request", "presidental party"};
 
@@ -308,3 +342,5 @@ int main() {
 
     return 0;
 }
+
+/* MAIN.CPP */

@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:01:43 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 22:39:43 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 01:45:51 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,14 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-class Bureaucrat;  // Déclaration anticipée de la classe AForm
+/**
+ * @brief Déclaration anticipée de la classe Bureaucrat
+ */
+class Bureaucrat;
 
-
+/**
+ * @brief Classe abstraite représentant un formulaire avec des informations de signature et d'exécution
+ */
 class AForm {
 	private:
 		const std::string _name;
@@ -60,3 +65,5 @@ class AForm {
 		};
 
 };
+
+/* AFORM.HPP */

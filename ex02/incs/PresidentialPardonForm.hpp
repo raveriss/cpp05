@@ -6,28 +6,30 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:59:02 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 22:34:21 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 01:25:55 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-#define PRESIDENTIALPARDONFORM_HPP
+#pragma once
 
 #include "AForm.hpp"
 
+/**
+ * @brief Classe représentant un formulaire de grâce présidentielle, dérivée de AForm
+ */
 class PresidentialPardonForm : public AForm {
-private:
-    std::string target;
+    private:
+        std::string target;
 
-protected:
-    void executeAction() const;
+    protected:
+        void executeAction() const;
 
-public:
-    PresidentialPardonForm();
-    PresidentialPardonForm(const std::string & target);
-    PresidentialPardonForm(const PresidentialPardonForm & other);
-    PresidentialPardonForm & operator = (const PresidentialPardonForm & other);
-    virtual ~PresidentialPardonForm();
+    public:
+        PresidentialPardonForm();
+        PresidentialPardonForm(const std::string & target);
+        PresidentialPardonForm(const PresidentialPardonForm & other);
+        PresidentialPardonForm & operator = (const PresidentialPardonForm & other);
+        virtual ~PresidentialPardonForm();
 };
 
-#endif
+/* PRESIDENTIALPARDONFORM.HPP */

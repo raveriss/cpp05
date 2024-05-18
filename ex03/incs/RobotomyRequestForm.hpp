@@ -6,16 +6,19 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 22:41:24 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 01:28:12 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-#define ROBOTOMYREQUESTFORM_HPP
+#pragma once
 
 #include "AForm.hpp"
+#include <iostream>
 #include <cstdlib>
 
+/**
+ * @brief Classe représentant un formulaire de demande de robotomie, dérivée de AForm
+ */
 class RobotomyRequestForm : public AForm {
     private:
         std::string target;
@@ -31,4 +34,4 @@ class RobotomyRequestForm : public AForm {
         virtual ~RobotomyRequestForm();
 };
 
-#endif
+/* ROBOTOMYREQUESTFORM.HPP */

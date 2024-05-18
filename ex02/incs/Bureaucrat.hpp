@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:06 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 22:34:05 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 01:08:28 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,14 @@
 #include <AForm.hpp>
 #include <Bureaucrat.hpp>
 
-class AForm;  // Déclaration anticipée de la classe Form
+/**
+ * @brief Déclaration anticipée de la classe Form
+ */
+class AForm;
 
-
+/*
+ * @brief Classe représentant un bureaucrate
+ */
 class Bureaucrat {
 	private:
 		const std::string _name;
@@ -51,5 +56,10 @@ class Bureaucrat {
 		};
 };
 
+/**
+ * @brief Opérateur de sortie pour la classe Bureaucrat
+ */
 std::ostream & operator << (std::ostream & out, const Bureaucrat & bureaucrat);
+
+/* BUREAUCRAT.HPP */
 

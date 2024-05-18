@@ -6,17 +6,23 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:24:41 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/17 13:45:09 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 01:55:43 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Bureaucrat.hpp"
+#include "../incs/Bureaucrat.hpp"
 #include <iostream>
 
+/**
+ * @brief Macro pour vérifier une expression et afficher un message de test passé/échoué
+ */
 #define ASSERT_TEST(expression, message) \
 	if (expression) { std::cout << "\033[32m[TEST PASSED]\033[0m " << message << std::endl; } \
 	else { std::cout << "\033[31m[TEST FAILED]\033[0m " << message << std::endl; }
 
+/**
+ * @brief Définitions des codes de couleur ANSI pour la sortie console
+ */
 #define GREY		"\033[0;30m"
 #define RED			"\033[0;31m"
 #define GREEN		"\033[0;32m"
@@ -26,6 +32,9 @@
 #define CYAN		"\033[0;36m"
 #define NC			"\033[0m"
 
+/**
+ * @brief Point d'entrée principal du programme
+ */
 int main() {
 	Bureaucrat *original = NULL;
 	Bureaucrat *copy = NULL;
@@ -120,7 +129,6 @@ int main() {
 
 		copy->incrementGrade();
 		std::cout << BLUE << "\nAfter incrementing copy:\n" << NC;
-		///copy not original
 		std::cout << "Original " << *original;
 		std::cout << "Copy " << *copy;
 		ASSERT_TEST(original->getGrade() == 50, "Grade of original unchanged.");
@@ -142,7 +150,10 @@ int main() {
 		copy = new Bureaucrat("Second", 100);
 		std::cout <<  BLUE << "Before assignment:" << NC << std::endl << *original << *copy << std::endl;
 
-		*copy = *original;  // Using assignment operator
+		/**
+		 * Using assignment operator
+		*/
+		*copy = *original;
 		std::cout << BLUE << "After assignment:" << NC << std::endl;
 		std::cout << *original << *copy;
 		ASSERT_TEST(copy->getName() == "Second", "Name of copy unchanged.");
@@ -164,3 +175,4 @@ int main() {
 	return 0;
 }
 
+/* MAIN.CPP */

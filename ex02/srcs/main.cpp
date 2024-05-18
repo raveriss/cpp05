@@ -7,10 +7,16 @@
 #include "AForm.hpp"
 #include <typeinfo>
 
+/**
+ * @brief Macro pour vérifier une expression et afficher un message de test passé/échoué
+ */
 #define ASSERT_TEST(expression, message) \
     if (expression) { std::cout << "\033[32m[TEST PASSED]\033[0m " << message << std::endl; } \
     else { std::cout << "\033[31m[TEST FAILED]\033[0m " << message << std::endl; }
 
+/**
+ * @brief Définitions des codes de couleur ANSI pour la sortie console
+ */
 #define GREY        "\033[0;30m"
 #define RED         "\033[0;31m"
 #define GREEN       "\033[0;32m"
@@ -20,6 +26,9 @@
 #define CYAN        "\033[0;36m"
 #define NC          "\033[0m"
 
+/**
+ * @brief Point d'entrée principal du programme
+ */
 int main() {
 
 	Bureaucrat *original = NULL;
@@ -115,7 +124,6 @@ int main() {
 
 		copy->incrementGrade();
 		std::cout << BLUE << "\nAfter incrementing copy:\n" << NC;
-		///copy not original
 		std::cout << "Original " << *original;
 		std::cout << "Copy " << *copy;
 		ASSERT_TEST(original->getGrade() == 50, "Grade of original unchanged.");
@@ -137,7 +145,10 @@ int main() {
 		copy = new Bureaucrat("Second", 100);
 		std::cout <<  BLUE << "Before assignment:" << NC << std::endl << *original << *copy << std::endl;
 
-		*copy = *original;  // Using assignment operator
+		/*
+		* Using assignment operator
+		*/
+		*copy = *original;
 		std::cout << BLUE << "After assignment:" << NC << std::endl;
 		std::cout << *original << *copy;
 		ASSERT_TEST(copy->getName() == "Second", "Name of copy unchanged.");
@@ -226,14 +237,18 @@ int main() {
         ShrubberyCreationForm shrub("test_target");
         bob.signForm(shrub);
 
-        // Exécuter le formulaire avec executeForm
+        /**
+		 * Exécuter le formulaire avec executeForm
+		*/
         bob.executeForm(shrub);
         std::ifstream infile("test_target_shrubbery");
         ASSERT_TEST(infile.good(), "Shrubbery file created using executeForm.");
         infile.close();
         std::remove("test_target_shrubbery");
 
-        // Exécuter le formulaire avec execute
+        /**
+		 * Exécuter le formulaire avec execute
+		*/
         shrub.execute(bob);
         infile.open("test_target_shrubbery");
         ASSERT_TEST(infile.good(), "Shrubbery file created using execute.");
@@ -281,3 +296,5 @@ int main() {
     // */
     return 0;
 }
+
+/* MAIN.CPP */

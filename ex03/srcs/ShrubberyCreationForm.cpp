@@ -6,22 +6,30 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/17 16:10:13 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 01:03:06 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/ShrubberyCreationForm.hpp"
-#include <fstream>
-#include <iostream>
-#include <sstream>
-#include <sys/stat.h>
 
+/**
+ * @brief Constructeur par défaut de la classe ShrubberyCreationForm
+ */
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), target("") {}
 
+/**
+ * @brief Constructeur avec paramètre de la classe ShrubberyCreationForm
+ */
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target) : AForm("ShrubberyCreationForm", 145, 137), target(target) {}
 
+/**
+ * @brief Constructeur de copie de la classe ShrubberyCreationForm
+ */
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & other) : AForm(other), target(other.target) {}
 
+/**
+ * @brief Opérateur d'affectation de la classe ShrubberyCreationForm
+ */
 ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreationForm & other) {
     if (this != & other) {
         AForm::operator=(other);
@@ -30,15 +38,26 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreati
     return *this;
 }
 
+/**
+ * @brief Destructeur de la classe ShrubberyCreationForm
+ */
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
+/**
+ * @brief Exécute l'action spécifique de ShrubberyCreationForm
+ */
 void ShrubberyCreationForm::executeAction() const {
     std::string baseFilename = target + "_shrubbery";
     std::string filename = baseFilename;
     struct stat fileStat;
 
-    // Check if base file exists and its permissions
-    if (stat(filename.c_str(), &fileStat) == 0 && (fileStat.st_mode & S_IWUSR) == 0) { // Fichier existant et non accessible en écriture
+    /**
+     * Check if base file exists and its permissions
+    */
+    if (stat(filename.c_str(), &fileStat) == 0 && (fileStat.st_mode & S_IWUSR) == 0) { 
+        /**
+         * Fichier existant et non accessible en écriture
+        */
         std::cout << "File " << baseFilename << " already exists and is not writable. \n";
         int counter = 1;
         bool fileFound = false;
@@ -48,16 +67,26 @@ void ShrubberyCreationForm::executeAction() const {
             oss << baseFilename << "_" << counter++;
             filename = oss.str();
             
-            // Check if new filename exists
+            /**
+             * Check if new filename exists
+            */
             if (stat(filename.c_str(), &fileStat) == 0) {
-                // File exists, check its permissions
+                /**
+                 * File exists, check its permissions
+                */
                 if ((fileStat.st_mode & S_IWUSR) == 0) {
                     std::cout << "File " << filename << " already exists and is not writable. \nTrying next suffix.\n";
                 } else {
-                    fileFound = true; // File exists and is writable
+                    /**
+                     * File exists and is writable
+                    */
+                    fileFound = true;
                 }
             } else {
-                fileFound = true; // File does not exist, can be created
+                /**
+                 * File does not exist, can be created
+                */
+                fileFound = true;
             }
         }
         std::cout << "Creating a new file with suffix _" << counter - 1 << std::endl;
@@ -80,3 +109,5 @@ void ShrubberyCreationForm::executeAction() const {
         std::cerr << "Failed to open file: " << filename << "\n";
     }
 }
+
+/* SHRUBBERYCREATIONFORM.CPP */

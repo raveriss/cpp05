@@ -6,27 +6,33 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 22:37:11 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 01:12:25 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/Bureaucrat.hpp"
 
+/**
+ * @brief Constructeur par défaut de la classe Bureaucrat
+ */
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {}
 
 /**
- * @brief Construct a new Bureaucrat:: Bureaucrat object
- * 
- * @param name 
- * @param grade 
+ * @brief Constructeur avec paramètres de la classe Bureaucrat, vérifie les exceptions de grade
  */
 Bureaucrat::Bureaucrat(const std::string & name, int grade) : _name(name), _grade(grade) {
 	if (_grade < 1) throw GradeTooHighException();
 	if (_grade > 150) throw GradeTooLowException();
 }
 
+/**
+ * @brief Constructeur par copie de la classe Bureaucrat
+ */
 Bureaucrat::Bureaucrat(const Bureaucrat & rootBureaucrat) : _name(rootBureaucrat._name), _grade(rootBureaucrat._grade) {}
 
+/**
+ * @brief Opérateur d'affectation de la classe Bureaucrat
+ */
 Bureaucrat & Bureaucrat :: operator = (const Bureaucrat & rootBureaucrat)
 {
 	if (this != & rootBureaucrat)
@@ -38,39 +44,43 @@ Bureaucrat & Bureaucrat :: operator = (const Bureaucrat & rootBureaucrat)
 }
 
 /**
- * @brief Destroy the Bureaucrat:: Bureaucrat object
- * 
+ * @brief Destructeur de la classe Bureaucrat
  */
 Bureaucrat::~Bureaucrat() {}
 
 /**
- * @brief 
- * 
- * @return const std::string& 
+ * @brief Renvoie le nom du Bureaucrat
  */
 std::string Bureaucrat::getName() const {
 	return _name;
 }
 
 /**
- * @brief 
- * 
- * @return int 
+ * @brief Renvoie le grade du Bureaucrat
  */
 int Bureaucrat::getGrade() const {
 	return _grade;
 }
 
+/**
+ * @brief Incrémente le grade du Bureaucrat en vérifiant les exceptions
+ */
 void Bureaucrat::incrementGrade() {
 	if (_grade <= 1) throw GradeTooHighException();
 	--_grade;
 }
 
+/**
+ * @brief Décrémente le grade du Bureaucrat en vérifiant les exceptions
+ */
 void Bureaucrat::decrementGrade() {
 	if (_grade >= 150) throw GradeTooLowException();
 	++_grade;
 }
 
+/**
+ * @brief Signe un formulaire en attrapant les exceptions possibles
+ */
 void Bureaucrat::signForm(AForm & form) const {
 	try {
 		form.beSigned(*this);
@@ -82,6 +92,9 @@ void Bureaucrat::signForm(AForm & form) const {
 	}
 }
 
+/**
+ * @brief Exécute un formulaire en attrapant les exceptions possibles
+ */
 void Bureaucrat::executeForm(const AForm & form) const {
     try {
         form.execute(*this);
@@ -91,15 +104,26 @@ void Bureaucrat::executeForm(const AForm & form) const {
     }
 }
 
+/**
+ * @brief Exception pour un grade trop élevé dans la classe Bureaucrat
+ */
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
     return "Grade is too high!";
 }
 
+/**
+ * @brief Exception pour un grade trop bas dans la classe Bureaucrat
+ */
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
     return "Grade is too low!";
 }
 
+/**
+ * @brief Surcharge de l'opérateur de flux pour la classe Bureaucrat
+ */
 std::ostream & operator << (std::ostream & out, const Bureaucrat & bureaucrat) {
     out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << std::endl;
     return out;
 }
+
+/* BUREAUCRAT.CPP */

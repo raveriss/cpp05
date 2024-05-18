@@ -6,7 +6,7 @@
 #    By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:16 by raveriss          #+#    #+#              #
-#    Updated: 2024/05/14 10:41:30 by raveriss         ###   ########.fr        #
+#    Updated: 2024/05/18 01:55:04 by raveriss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME = bureaucrat
 SRC_DIR = srcs
 OBJ_DIR = obj
-INC_DIR = includes
+INC_DIR = incs
 
 # Compiler and flags
 CXX = c++

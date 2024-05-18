@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:46:56 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 22:40:46 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 01:47:12 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include "AForm.hpp"
 #include <string>
 
+/**
+ * @brief Classe représentant un stagiaire capable de créer différents formulaires
+ */
 class Intern {
     public:
         Intern();
@@ -29,3 +32,5 @@ class Intern {
         AForm * createRobotomyRequest(const std::string & target) const;
         AForm * createPresidentialPardon(const std::string & target) const;
 };
+
+/* INTERN.HPP */

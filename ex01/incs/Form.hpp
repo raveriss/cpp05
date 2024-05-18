@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:01:43 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 01:24:29 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 02:07:02 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,47 +22,49 @@
 class Bureaucrat;
 
 /**
- * @brief Classe abstraite représentant un formulaire avec des informations de signature et d'exécution
+ * @brief Déclaration de la classe Form avec gestion des signatures et exceptions de grade
  */
-class AForm {
+
+class Form {
     private:
         const std::string _name;
         bool _isSigned;
         const int _gradeRequiredToSign;
         const int _gradeRequiredToExecute;
 
-    protected:
-        virtual void executeAction() const = 0;
-
     public:
-        AForm();
-        AForm(const std::string & name, int gradeToSign, int gradeToExecute);
-        AForm(const AForm & src);
-        AForm & operator = (const AForm & rhs);
-        virtual ~AForm();
+        Form();
+        Form(const std::string & name, int gradeToSign, int gradeToExecute);
+        Form(const Form & src);
+        Form & operator = (const Form & rhs);
+        ~Form();
 
-        std::string getName() const;
+        const std::string & getName() const;
         bool getIsSigned() const;
         int getGradeRequiredToSign() const;
         int getGradeRequiredToExecute() const;
 
         void beSigned(const Bureaucrat & bureaucrat);
-        void execute(const Bureaucrat & executor) const;
 
         class GradeTooHighException : public std::exception {
         public:
-            const char * what() const throw();
+            const char * what() const throw() {
+                return "Grade too high";
+            }
         };
 
         class GradeTooLowException : public std::exception {
         public:
-            const char * what() const throw();
+            const char * what() const throw() {
+                return "Grade too low";
+            }
         };
-        
-        class FormNotSignedException : public std::exception {
-        public:
-            const char * what() const throw();
-        };
+
 };
 
-/* AFORM.HPP */
+/**
+ * @brief Surcharge de l'opérateur de flux pour la classe Form
+ */
+std::ostream & operator << (std::ostream & os, const Form & form);
+
+/* FORM.HPP */

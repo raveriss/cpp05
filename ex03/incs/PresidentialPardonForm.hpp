@@ -6,15 +6,18 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:59:02 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/16 22:41:03 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/18 01:47:32 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-#define PRESIDENTIALPARDONFORM_HPP
+#pragma once
 
 #include "AForm.hpp"
+#include <iostream>
 
+/**
+ * @brief Classe représentant un formulaire de grâce présidentielle, dérivée de AForm
+ */
 class PresidentialPardonForm : public AForm {
     private:
         std::string target;
@@ -30,4 +33,4 @@ class PresidentialPardonForm : public AForm {
         virtual ~PresidentialPardonForm();
 };
 
-#endif
+/* PRESIDENTIALPARDONFORM.HPP */
