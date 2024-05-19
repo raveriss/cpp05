@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:06 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 12:01:30 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 class AForm;
 
 /**
- * @brief Classe représentant un bureaucrate
+ *  Classe représentant un bureaucrate
  */
 class Bureaucrat
 {
@@ -92,7 +92,7 @@ class Bureaucrat
 };
 
 /**
- * @brief Opérateur de sortie pour la classe Bureaucrat
+ *  Opérateur de sortie pour la classe Bureaucrat
  */
 std::ostream & operator << (std::ostream & out, const Bureaucrat & bureaucrat);
 

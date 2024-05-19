@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 03:38:25 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 11:49:12 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@
 
 
 /**
- * @brief Macro pour vérifier une expression et afficher un message de test passé/échoué
+ *  Macro pour vérifier une expression et afficher un message de test passé/échoué
  */
 #define ASSERT_TEST(expression, message) \
     if (expression) { std::cout << "\033[32m[TEST PASSED]\033[0m " << message << std::endl; } \
     else { std::cout << "\033[31m[TEST FAILED]\033[0m " << message << std::endl; }
 
 /**
- * @brief Définitions des codes de couleur ANSI pour la sortie console
+ *  Définitions des codes de couleur ANSI pour la sortie console
  */
 #define GREY        "\033[0;30m"
 #define RED         "\033[0;31m"
@@ -55,7 +55,7 @@
 #define NC          "\033[0m"
 
 /**
- * @brief Point d'entrée principal du programme
+ *  Point d'entrée principal du programme
  */
 int main()
 {

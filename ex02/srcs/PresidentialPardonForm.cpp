@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:58:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 11:44:12 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 #include "PresidentialPardonForm.hpp"
 
 /**
- * @brief Constructeur par défaut de la classe PresidentialPardonForm
+ *  Constructeur par défaut de la classe PresidentialPardonForm
  */
 PresidentialPardonForm::PresidentialPardonForm()
 : AForm("PresidentialPardonForm", 25, 5), target("")
 {}
 
 /**
- * @brief Constructeur avec paramètre de la classe PresidentialPardonForm
+ *  Constructeur avec paramètre de la classe PresidentialPardonForm
  */
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
 : AForm("PresidentialPardonForm", 25, 5), target(target)
 {}
 
 /**
- * @brief Constructeur de copie de la classe PresidentialPardonForm
+ *  Constructeur de copie de la classe PresidentialPardonForm
  */
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
 : AForm(other), target(other.target)
 {}
 
 /**
- * @brief Opérateur d'affectation de la classe PresidentialPardonForm
+ *  Opérateur d'affectation de la classe PresidentialPardonForm
  */
 PresidentialPardonForm & PresidentialPardonForm::operator = (const PresidentialPardonForm & other)
 {
@@ -48,13 +48,13 @@ PresidentialPardonForm & PresidentialPardonForm::operator = (const PresidentialP
 }
 
 /**
- * @brief Destructeur de la classe PresidentialPardonForm
+ *  Destructeur de la classe PresidentialPardonForm
  */
 PresidentialPardonForm::~PresidentialPardonForm()
 {}
 
 /**
- * @brief Exécute l'action spécifique de PresidentialPardonForm
+ *  Exécute l'action spécifique de PresidentialPardonForm
  */
 void PresidentialPardonForm::executeAction() const
 {

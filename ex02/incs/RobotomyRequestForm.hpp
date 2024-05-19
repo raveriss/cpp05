@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 11:25:14 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 /* Inclusion du fichier d'en-tête de la classe AForm */
 #include "AForm.hpp"
 
-/* Inclusion de la bibliothèque standard pour les fonctions utilitaires générales */
+/* Inclusion de la bibliothèque standard pour l'utilisation de rand() */
 #include <cstdlib>
 
 /* Inclusion de la bibliothèque standard pour les flux d'entrée/sortie */
 #include <iostream>
 
 /**
- * @brief Classe représentant un formulaire de demande de robotomie, dérivée de AForm
+ *  Classe représentant un formulaire de demande de robotomie, dérivée de AForm
  */
 class RobotomyRequestForm : public AForm
 {

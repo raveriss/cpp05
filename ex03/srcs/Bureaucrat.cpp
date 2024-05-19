@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 11:45:06 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #include "../incs/Bureaucrat.hpp"
 
 /**
- * @brief Constructeur par défaut de la classe Bureaucrat
+ *  Constructeur par défaut de la classe Bureaucrat
  */
 Bureaucrat::Bureaucrat()
 : _name("Default"), _grade(150)
 {}
 
 /**
- * @brief Constructeur avec paramètres de la classe Bureaucrat, vérifie les exceptions de grade
+ *  Constructeur avec paramètres de la classe Bureaucrat, vérifie les exceptions de grade
  */
 Bureaucrat::Bureaucrat(const std::string & name, int grade)
 : _name(name), _grade(grade)
@@ -33,14 +33,14 @@ Bureaucrat::Bureaucrat(const std::string & name, int grade)
 }
 
 /**
- * @brief Constructeur par copie de la classe Bureaucrat
+ *  Constructeur par copie de la classe Bureaucrat
  */
 Bureaucrat::Bureaucrat(const Bureaucrat & rootBureaucrat)
 : _name(rootBureaucrat._name), _grade(rootBureaucrat._grade)
 {}
 
 /**
- * @brief Opérateur d'affectation de la classe Bureaucrat
+ *  Opérateur d'affectation de la classe Bureaucrat
  */
 Bureaucrat & Bureaucrat :: operator = (const Bureaucrat & rootBureaucrat)
 {
@@ -51,13 +51,13 @@ Bureaucrat & Bureaucrat :: operator = (const Bureaucrat & rootBureaucrat)
 }
 
 /**
- * @brief Destructeur de la classe Bureaucrat
+ *  Destructeur de la classe Bureaucrat
  */
 Bureaucrat::~Bureaucrat()
 {}
 
 /**
- * @brief Renvoie le nom du Bureaucrat
+ *  Renvoie le nom du Bureaucrat
  */
 std::string Bureaucrat::getName() const
 {
@@ -65,7 +65,7 @@ std::string Bureaucrat::getName() const
 }
 
 /**
- * @brief Renvoie le grade du Bureaucrat
+ *  Renvoie le grade du Bureaucrat
  */
 int Bureaucrat::getGrade() const
 {
@@ -73,7 +73,7 @@ int Bureaucrat::getGrade() const
 }
 
 /**
- * @brief Incrémente le grade du Bureaucrat en vérifiant les exceptions
+ *  Incrémente le grade du Bureaucrat en vérifiant les exceptions
  */
 void Bureaucrat::incrementGrade()
 {
@@ -83,7 +83,7 @@ void Bureaucrat::incrementGrade()
 }
 
 /**
- * @brief Décrémente le grade du Bureaucrat en vérifiant les exceptions
+ *  Décrémente le grade du Bureaucrat en vérifiant les exceptions
  */
 void Bureaucrat::decrementGrade()
 {
@@ -93,7 +93,7 @@ void Bureaucrat::decrementGrade()
 }
 
 /**
- * @brief Signe un formulaire en attrapant les exceptions possibles
+ *  Signe un formulaire en attrapant les exceptions possibles
  */
 void Bureaucrat::signForm(AForm & form) const
 {
@@ -113,7 +113,7 @@ void Bureaucrat::signForm(AForm & form) const
 }
 
 /**
- * @brief Exécute un formulaire en attrapant les exceptions possibles
+ *  Exécute un formulaire en attrapant les exceptions possibles
  */
 void Bureaucrat::executeForm(const AForm & form) const
 {
@@ -129,7 +129,7 @@ void Bureaucrat::executeForm(const AForm & form) const
 }
 
 /**
- * @brief Exception pour un grade trop élevé dans la classe Bureaucrat
+ *  Exception pour un grade trop élevé dans la classe Bureaucrat
  */
 const char * Bureaucrat::GradeTooHighException::what() const throw()
 {
@@ -137,7 +137,7 @@ const char * Bureaucrat::GradeTooHighException::what() const throw()
 }
 
 /**
- * @brief Exception pour un grade trop bas dans la classe Bureaucrat
+ *  Exception pour un grade trop bas dans la classe Bureaucrat
  */
 const char * Bureaucrat::GradeTooLowException::what() const throw()
 {
@@ -145,7 +145,7 @@ const char * Bureaucrat::GradeTooLowException::what() const throw()
 }
 
 /**
- * @brief Surcharge de l'opérateur de flux pour la classe Bureaucrat
+ *  Surcharge de l'opérateur de flux pour la classe Bureaucrat
  */
 std::ostream & operator << (std::ostream & out, const Bureaucrat & bureaucrat)
 {

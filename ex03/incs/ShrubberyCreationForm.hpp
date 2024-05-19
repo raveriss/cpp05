@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:46 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 11:54:31 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:56:45 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 #include <sys/stat.h>
 
 /**
- * @brief Classe représentant un formulaire de création d'arbustes, dérivée de AForm
+ *  Classe représentant un formulaire de création d'arbustes, dérivée de AForm
  */
 class ShrubberyCreationForm : public AForm
 {
@@ -56,6 +56,9 @@ class ShrubberyCreationForm : public AForm
 
         /* Destructeur */
         virtual ~ShrubberyCreationForm();
+
+        /* Accesseur pour la cible */
+        std::string getTarget() const;
 };
 
 /* SHRUBBERYCREATIONFORM.HPP */

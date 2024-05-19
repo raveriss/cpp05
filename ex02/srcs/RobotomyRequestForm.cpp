@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:09 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 11:44:21 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 #include "../incs/RobotomyRequestForm.hpp"
 
 /**
- * @brief Constructeur par défaut de la classe RobotomyRequestForm
+ *  Constructeur par défaut de la classe RobotomyRequestForm
  */
 RobotomyRequestForm::RobotomyRequestForm()
 : AForm("RobotomyRequestForm", 72, 45), target("")
 {}
 
 /**
- * @brief Constructeur avec paramètre de la classe RobotomyRequestForm
+ *  Constructeur avec paramètre de la classe RobotomyRequestForm
  */
 RobotomyRequestForm::RobotomyRequestForm(const std::string & target)
 : AForm("RobotomyRequestForm", 72, 45), target(target)
 {}
 
 /**
- * @brief Constructeur de copie de la classe RobotomyRequestForm
+ *  Constructeur de copie de la classe RobotomyRequestForm
  */
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & other)
 : AForm(other), target(other.target)
 {}
 
 /**
- * @brief Opérateur d'affectation de la classe RobotomyRequestForm
+ *  Opérateur d'affectation de la classe RobotomyRequestForm
  */
 RobotomyRequestForm & RobotomyRequestForm::operator = (const RobotomyRequestForm & other)
 {
@@ -48,13 +48,13 @@ RobotomyRequestForm & RobotomyRequestForm::operator = (const RobotomyRequestForm
 }
 
 /**
- * @brief Destructeur de la classe RobotomyRequestForm
+ *  Destructeur de la classe RobotomyRequestForm
  */
 RobotomyRequestForm::~RobotomyRequestForm()
 {}
 
 /**
- * @brief Exécute l'action spécifique de RobotomyRequestForm
+ *  Exécute l'action spécifique de RobotomyRequestForm
  */
 void RobotomyRequestForm::executeAction() const
 {

@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:59:02 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 11:20:14 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <iostream>
 
 /**
- * @brief Classe représentant un formulaire de grâce présidentielle, dérivée de AForm
+ *  Classe représentant un formulaire de grâce présidentielle, dérivée de AForm
  */
 class PresidentialPardonForm : public AForm
 {

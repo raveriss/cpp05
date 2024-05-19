@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:24:41 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 11:38:13 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <iostream>
 
 /**
- * @brief Macro pour vérifier une expression et afficher un message de test passé/échoué
+ *  Macro pour vérifier une expression et afficher un message de test passé/échoué
  */
 #define ASSERT_TEST(expression, message) \
 	if (expression) { std::cout << "\033[32m[TEST PASSED]\033[0m " << message << std::endl; } \
@@ -34,7 +34,7 @@
 #define NC			"\033[0m"
 
 /**
- * @brief Point d'entrée principal du programme
+ *  Point d'entrée principal du programme
  */
 int main()
 {

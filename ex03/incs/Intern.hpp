@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:46:56 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 11:33:11 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <string>
 
 /**
- * @brief Classe représentant un stagiaire capable de créer différents formulaires
+ *  Classe représentant un stagiaire capable de créer différents formulaires
  */
 class Intern
 {

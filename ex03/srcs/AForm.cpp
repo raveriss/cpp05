@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:02:19 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 11:44:55 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #include "../incs/AForm.hpp"
 
 /**
- * @brief Constructeur par défaut de la classe AForm
+ *  Constructeur par défaut de la classe AForm
  */
 AForm::AForm()
 : _name(""), _isSigned(false), _gradeRequiredToSign(150), _gradeRequiredToExecute(150)
 {}
 
 /**
- * @brief Constructeur avec paramètres de la classe AForm, vérifie les exceptions de grade
+ *  Constructeur avec paramètres de la classe AForm, vérifie les exceptions de grade
  */
 AForm::AForm(const std::string & name, int gradeToSign, int gradeToExecute)
 : _name(name), _isSigned(false), _gradeRequiredToSign(gradeToSign), _gradeRequiredToExecute(gradeToExecute)
@@ -33,14 +33,14 @@ AForm::AForm(const std::string & name, int gradeToSign, int gradeToExecute)
 }
 
 /**
- * @brief Constructeur par copie de la classe AForm
+ *  Constructeur par copie de la classe AForm
  */
 AForm::AForm(const AForm & src)
 : _name(src._name), _isSigned(src._isSigned), _gradeRequiredToSign(src._gradeRequiredToSign), _gradeRequiredToExecute(src._gradeRequiredToExecute)
 {}
 
 /**
- * @brief Opérateur d'affectation de la classe AForm
+ *  Opérateur d'affectation de la classe AForm
  */
 AForm& AForm::operator = (const AForm & rhs)
 {
@@ -50,13 +50,13 @@ AForm& AForm::operator = (const AForm & rhs)
 }
 
 /**
- * @brief Destructeur de la classe AForm
+ *  Destructeur de la classe AForm
  */
 AForm::~AForm()
 {}
 
 /**
- * @brief Renvoie le nom du formulaire
+ *  Renvoie le nom du formulaire
  */
 std::string AForm::getName() const
 {
@@ -64,7 +64,7 @@ std::string AForm::getName() const
 }
 
 /**
- * @brief Renvoie l'état de signature du formulaire
+ *  Renvoie l'état de signature du formulaire
  */
 bool AForm::getIsSigned() const
 {
@@ -72,7 +72,7 @@ bool AForm::getIsSigned() const
 }
 
 /**
- * @brief Renvoie le grade requis pour signer le formulaire
+ *  Renvoie le grade requis pour signer le formulaire
  */
 int AForm::getGradeRequiredToSign() const
 {
@@ -80,7 +80,7 @@ int AForm::getGradeRequiredToSign() const
 }
 
 /**
- * @brief Renvoie le grade requis pour exécuter le formulaire
+ *  Renvoie le grade requis pour exécuter le formulaire
  */
 int AForm::getGradeRequiredToExecute() const
 {
@@ -88,7 +88,7 @@ int AForm::getGradeRequiredToExecute() const
 }
 
 /**
- * @brief Signe le formulaire après vérification du grade et des exceptions
+ *  Signe le formulaire après vérification du grade et des exceptions
  */
 void AForm::beSigned(const Bureaucrat & bureaucrat)
 {
@@ -101,7 +101,7 @@ void AForm::beSigned(const Bureaucrat & bureaucrat)
 }
 
 /**
- * @brief Exécute le formulaire après vérification des conditions et des exceptions
+ *  Exécute le formulaire après vérification des conditions et des exceptions
  */
 bool AForm::execute(const Bureaucrat & executor) const
 {
@@ -114,7 +114,7 @@ bool AForm::execute(const Bureaucrat & executor) const
 }
 
 /**
- * @brief Surcharge de l'opérateur de flux pour la classe AForm
+ *  Surcharge de l'opérateur de flux pour la classe AForm
  */
 std::ostream & operator << (std::ostream & os, const AForm & AForm)
 {
@@ -125,7 +125,7 @@ std::ostream & operator << (std::ostream & os, const AForm & AForm)
 }
 
 /**
- * @brief Exception pour grade trop élevé dans la classe AForm
+ *  Exception pour grade trop élevé dans la classe AForm
  */
 const char * AForm::GradeTooHighException::what() const throw()
 {
@@ -133,7 +133,7 @@ const char * AForm::GradeTooHighException::what() const throw()
 }
 
 /**
- * @brief Exception pour grade trop bas dans la classe AForm
+ *  Exception pour grade trop bas dans la classe AForm
  */
 const char * AForm::GradeTooLowException::what() const throw()
 {
@@ -141,7 +141,7 @@ const char * AForm::GradeTooLowException::what() const throw()
 }
 
 /**
- * @brief Exception pour formulaire non signé dans la classe AForm
+ *  Exception pour formulaire non signé dans la classe AForm
  */
 const char * AForm::FormNotSignedException::what() const throw()
 {

@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 11:44:31 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 #include "../incs/ShrubberyCreationForm.hpp"
 
 /**
- * @brief Constructeur par défaut de la classe ShrubberyCreationForm
+ *  Constructeur par défaut de la classe ShrubberyCreationForm
  */
 ShrubberyCreationForm::ShrubberyCreationForm()
 : AForm("ShrubberyCreationForm", 145, 137), target("")
 {}
 
 /**
- * @brief Constructeur avec paramètre de la classe ShrubberyCreationForm
+ *  Constructeur avec paramètre de la classe ShrubberyCreationForm
  */
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target)
 : AForm("ShrubberyCreationForm", 145, 137), target(target)
 {}
 
 /**
- * @brief Constructeur de copie de la classe ShrubberyCreationForm
+ *  Constructeur de copie de la classe ShrubberyCreationForm
  */
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & other)
 : AForm(other), target(other.target)
 {}
 
 /**
- * @brief Opérateur d'affectation de la classe ShrubberyCreationForm
+ *  Opérateur d'affectation de la classe ShrubberyCreationForm
  */
 ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreationForm & other)
 {
@@ -48,13 +48,13 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreati
 }
 
 /**
- * @brief Destructeur de la classe ShrubberyCreationForm
+ *  Destructeur de la classe ShrubberyCreationForm
  */
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {}
 
 /**
- * @brief Exécute l'action spécifique de ShrubberyCreationForm
+ *  Exécute l'action spécifique de ShrubberyCreationForm
  */
 void ShrubberyCreationForm::executeAction() const
 {

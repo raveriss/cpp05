@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 03:38:13 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 11:51:09 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 17:42:32 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 #include "../incs/PresidentialPardonForm.hpp"
 
 /**
- * @brief Macro pour vérifier une expression et afficher un message de test passé/échoué
+ *  Macro pour vérifier une expression et afficher un message de test passé/échoué
  */
 #define ASSERT_TEST(expression, message) \
     if (expression) { std::cout << "\033[32m[TEST PASSED]\033[0m " << message << std::endl; } \
@@ -55,7 +55,7 @@
 #define NC          "\033[0m"
 
 /**
- * @brief Point d'entrée principal du programme
+ *  Point d'entrée principal du programme
  */
 int main()
 {
@@ -413,7 +413,121 @@ int main()
         ASSERT_TEST(!form, "Invalid form name, does not create form");
     }
 
-    return 0;
-}
+    /**
+     * TEST CREATION OF PRESIDENTIALPARDONFORM WITH EMPTY TARGET
+     */
+    std::cout << CYAN << "\nTEST CREATION OF PRESIDENTIALPARDONFORM WITH EMPTY TARGET:" << NC << std::endl;
+    try
+    {
+        PresidentialPardonForm emptyTargetForm;
+        ASSERT_TEST(false, "Should have thrown an exception for empty target.");
+    }
+    catch (const std::invalid_argument& e)
+    {
+        ASSERT_TEST(true, "Correctly threw an exception for empty target: " + std::string(e.what()));
+    }
+    catch (...)
+    {
+        ASSERT_TEST(false, "Wrong exception type caught for empty target.");
+    }
+
+    /**
+     * TEST OF PRESIDENTIALPARDONFORM WITH ASSIGNMENT OPERATOR WITH EMPTY TARGET
+     */
+    std::cout << CYAN << "\nTEST OF PRESIDENTIALPARDONFORM WITH ASSIGNMENT OPERATOR WITH EMPTY TARGET:" << NC << std::endl;
+    try
+    {
+        PresidentialPardonForm form1("");
+        PresidentialPardonForm form2;
+        form2 = form1;
+        ASSERT_TEST(false, "Should have thrown an exception for empty target in assignment.");
+    }
+    catch (const std::invalid_argument& e)
+    {
+        ASSERT_TEST(true, "Correctly threw an exception for empty target in assignment: " + std::string(e.what()));
+    }
+    catch (...)
+    {
+        ASSERT_TEST(false, "Wrong exception type caught for empty target in assignment.");
+    }
+
+    /**
+     * TEST CREATION OF ROBOTOMYREQUESTFORM WITH EMPTY TARGET
+     */
+    std::cout << CYAN << "\nTEST CREATION OF ROBOTOMYREQUESTFORM WITH EMPTY TARGET:" << NC << std::endl;
+    try
+    {
+        RobotomyRequestForm emptyTargetForm;
+        ASSERT_TEST(false, "Should have thrown an exception for empty target.");
+    }
+    catch (const std::invalid_argument& e)
+    {
+        ASSERT_TEST(true, "Correctly threw an exception for empty target: " + std::string(e.what()));
+    }
+    catch (...)
+    {
+        ASSERT_TEST(false, "Wrong exception type caught for empty target.");
+    }
+
+    /**
+     * TEST OF ROBOTOMYREQUESTFORM WITH ASSIGNMENT OPERATOR WITH EMPTY TARGET
+    */
+    std::cout << CYAN << "\nTEST OF ROBOTOMYREQUESTFORM WITH ASSIGNMENT OPERATOR WITH EMPTY TARGET:" << NC << std::endl;
+    try
+    {
+        RobotomyRequestForm form1("");
+        RobotomyRequestForm form2;
+        form2 = form1;
+        ASSERT_TEST(false, "Should have thrown an exception for empty target in assignment.");
+    }
+    catch (const std::invalid_argument& e)
+    {
+        ASSERT_TEST(true, "Correctly threw an exception for empty target in assignment: " + std::string(e.what()));
+    }
+    catch (...)
+    {
+        ASSERT_TEST(false, "Wrong exception type caught for empty target in assignment.");
+    }
+
+    /**
+     * TEST CREATION OF SHRUBBERYCREATIONFORM WITH EMPTY TARGET
+     */
+    std::cout << CYAN << "\nTEST CREATION OF SHRUBBERYCREATIONFORM WITH EMPTY TARGET:" << NC << std::endl;
+    try
+    {
+        ShrubberyCreationForm emptyTargetForm;
+        ASSERT_TEST(false, "Should have thrown an exception for empty target.");
+    }
+    catch (const std::invalid_argument& e)
+    {
+        ASSERT_TEST(true, "Correctly threw an exception for empty target: " + std::string(e.what()));
+    }
+    catch (...)
+    {
+        ASSERT_TEST(false, "Wrong exception type caught for empty target.");
+    }
+
+    /**
+     * TEST OF SHRUBBERYCREATIONFORM WITH ASSIGNMENT OPERATOR WITH EMPTY TARGET
+    */
+    std::cout << CYAN << "\nTEST OF SHRUBBERYCREATIONFORM WITH ASSIGNMENT OPERATOR WITH EMPTY TARGET:" << NC << std::endl;
+    try
+    {
+        ShrubberyCreationForm form1("");
+        ShrubberyCreationForm form2;
+        form2 = form1;
+        ASSERT_TEST(false, "Should have thrown an exception for empty target in assignment.");
+    }
+    catch (const std::invalid_argument& e)
+    {
+        ASSERT_TEST(true, "Correctly threw an exception for empty target in assignment: " + std::string(e.what()));
+    }
+    catch (...)
+    {
+        ASSERT_TEST(false, "Wrong exception type caught for empty target in assignment.");
+    }
+
+        return 0;
+    }
 
 /* MAIN.CPP */

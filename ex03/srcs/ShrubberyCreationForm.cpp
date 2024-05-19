@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 11:47:45 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 17:36:00 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,43 @@
 #include "../incs/ShrubberyCreationForm.hpp"
 
 /**
- * @brief Constructeur par défaut de la classe ShrubberyCreationForm
+ *  Constructeur par défaut de la classe ShrubberyCreationForm
  */
 ShrubberyCreationForm::ShrubberyCreationForm()
 : AForm("ShrubberyCreationForm", 145, 137), target("")
-{}
+{
+    std::cout << "Error: Target must be specified '" << target << "' is not recognized." << std::endl;
+    throw std::invalid_argument("Target must be specified");
+}
 
 /**
- * @brief Constructeur avec paramètre de la classe ShrubberyCreationForm
+ *  Constructeur avec paramètre de la classe ShrubberyCreationForm
  */
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target)
 : AForm("ShrubberyCreationForm", 145, 137), target(target)
-{}
+{
+    if (target.empty())
+    {
+        std::cout << "Error: Target must be specified '" << target << "' is not recognized." << std::endl;
+        throw std::invalid_argument("Target must be specified");
+    }
+}
 
 /**
- * @brief Constructeur de copie de la classe ShrubberyCreationForm
+ *  Constructeur de copie de la classe ShrubberyCreationForm
  */
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & other)
 : AForm(other), target(other.target)
-{}
+{
+    if (target.empty())
+    {
+        std::cout << "Error: Target must be specified '" << target << "' is not recognized." << std::endl;
+        throw std::invalid_argument("Target must be specified");
+    }
+}
 
 /**
- * @brief Opérateur d'affectation de la classe ShrubberyCreationForm
+ *  Opérateur d'affectation de la classe ShrubberyCreationForm
  */
 ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreationForm & other)
 {
@@ -48,13 +63,13 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreati
 }
 
 /**
- * @brief Destructeur de la classe ShrubberyCreationForm
+ *  Destructeur de la classe ShrubberyCreationForm
  */
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {}
 
 /**
- * @brief Exécute l'action spécifique de ShrubberyCreationForm
+ *  Exécute l'action spécifique de ShrubberyCreationForm
  */
 void ShrubberyCreationForm::executeAction() const
 {
@@ -125,6 +140,14 @@ void ShrubberyCreationForm::executeAction() const
     }
     else
         std::cerr << "Failed to open file: " << filename << "\n";
+}
+
+/**
+ *  Accesseur pour la cible
+ */
+std::string ShrubberyCreationForm::getTarget() const
+{
+    return target;
 }
 
 /* SHRUBBERYCREATIONFORM.CPP */

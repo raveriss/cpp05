@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:01:43 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 12:13:06 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 class Bureaucrat;
 
 /**
- * @brief Déclaration de la classe Form avec gestion des signatures et exceptions de grade
+ *  Déclaration de la classe Form avec gestion des signatures et exceptions de grade
  */
 class Form
 {
@@ -93,7 +93,7 @@ class Form
 };
 
 /**
- * @brief Surcharge de l'opérateur de flux pour la classe Form
+ *  Surcharge de l'opérateur de flux pour la classe Form
  */
 std::ostream & operator << (std::ostream & os, const Form & form);
 
