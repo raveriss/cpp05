@@ -6,13 +6,11 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 03:28:55 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 11:41:28 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * @brief Inclusion du fichier d'en-tête de la classe Bureaucrat
- */
+/* Inclusion du fichier d'en-tête de la classe Bureaucrat */
 #include "../incs/Bureaucrat.hpp"
 
 /**

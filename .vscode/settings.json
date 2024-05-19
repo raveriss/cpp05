@@ -49,5 +49,9 @@
         "typeinfo": "cpp",
         "fstream": "cpp",
         "sstream": "cpp"
+    },
+    "editor.tokenColorCustomizations": {
+        "comments": "",
+        "textMateRules": []
     }
 }

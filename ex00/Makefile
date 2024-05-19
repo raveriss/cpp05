@@ -6,7 +6,7 @@
 #    By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 10:21:16 by raveriss          #+#    #+#              #
-#    Updated: 2024/05/18 01:55:04 by raveriss         ###   ########.fr        #
+#    Updated: 2024/05/19 12:35:10 by raveriss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,11 @@ fclean: clean
 	@echo "Removing $(NAME)..."
 	@rm -f $(NAME)
 	@echo "$(NAME) removed."
+
+# Commande pour afficher le type de compilateur
+compiler:
+	@echo "Compilateur utilisé :"
+	@$(CXX) --version
 
 
 # Rebuild everything

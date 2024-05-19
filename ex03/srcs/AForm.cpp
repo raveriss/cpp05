@@ -6,13 +6,11 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:02:19 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 04:00:19 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 11:44:55 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * @brief Inclusion du fichier d'en-tête de la classe Intern
- */
+/* Inclusion du fichier d'en-tête de la classe Intern */
 #include "../incs/AForm.hpp"
 
 /**

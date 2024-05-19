@@ -6,13 +6,11 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 03:28:01 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 12:12:01 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * @brief Inclusion du fichier d'en-tête de la classe Bureaucrat
- */
+/* Inclusion du fichier d'en-tête de la classe Bureaucrat */
 #include "../incs/Bureaucrat.hpp"
 
 /**
@@ -110,6 +108,22 @@ void Bureaucrat::signForm(Form & form) const
 	{
 		std::cout << _name << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
 	}
+}
+
+/**
+ * @brief Exception pour un grade trop élevé dans la classe Bureaucrat
+ */
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return "Grade is too high!";
+}
+
+/**
+ * @brief Exception pour un grade trop bas dans la classe Bureaucrat
+ */
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return "Grade is too low!";
 }
 
 /**

@@ -6,17 +6,15 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:02:19 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 03:46:35 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 12:14:46 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * @brief Inclusion du fichier d'en-tête de la classe Form
- */
+/* Inclusion du fichier d'en-tête de la classe Form */
 #include "../incs/Form.hpp"
 
 /**
- * @brief Constructeur par défaut de la classe AForm
+ * @brief Constructeur par défaut de la classe Form
  */
 Form::Form()
 : _name(""), _isSigned(false), _gradeRequiredToSign(150), _gradeRequiredToExecute(150)
@@ -35,14 +33,14 @@ Form::Form(const std::string & name, int gradeToSign, int gradeToExecute)
 }
 
 /**
- * @brief Constructeur par copie de la classe AForm
+ * @brief Constructeur par copie de la classe Form
  */
 Form::Form(const Form & src)
 : _name(src._name), _isSigned(src._isSigned), _gradeRequiredToSign(src._gradeRequiredToSign), _gradeRequiredToExecute(src._gradeRequiredToExecute)
 {}
 
 /**
- * @brief Opérateur d'affectation de la classe AForm
+ * @brief Opérateur d'affectation de la classe Form
  */
 Form& Form::operator=(const Form & rhs)
 {
@@ -52,7 +50,7 @@ Form& Form::operator=(const Form & rhs)
 }
 
 /**
- * @brief Destructeur de la classe AForm
+ * @brief Destructeur de la classe Form
  */
 Form::~Form()
 {}
@@ -101,6 +99,22 @@ void Form::beSigned(const Bureaucrat & bureaucrat)
         _isSigned = true;
     else
         throw GradeTooLowException();
+}
+
+/**
+ * @brief Exception pour grade trop élevé dans la classe Form
+ */
+const char * Form::GradeTooHighException::what() const throw()
+{
+    return "Form grade is too high!";
+}
+
+/**
+ * @brief Exception pour grade trop bas dans la classe Form
+ */
+const char * Form::GradeTooLowException::what() const throw()
+{
+    return "Form grade is too low!";
 }
 
 /**

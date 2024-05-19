@@ -6,13 +6,11 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:02:19 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 04:17:58 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 11:35:48 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * @brief Inclusion du fichier d'en-tête de la classe AForm
- */
+/* Inclusion du fichier d'en-tête de la classe AForm */
 #include "../incs/AForm.hpp"
 
 /**
@@ -58,7 +56,7 @@ AForm::~AForm()
 {}
 
 /**
- * @brief Renvoie le nom du formulaire
+ * @brief Acceseur du nom du formulaire
  */
 std::string AForm::getName() const
 {

@@ -6,18 +6,14 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:24:41 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 00:14:46 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 11:40:22 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * @brief Inclusion du fichier d'en-tête de la classe Bureaucrat
- */
+/* Inclusion du fichier d'en-tête de la classe Bureaucrat */
 #include "../incs/Bureaucrat.hpp"
 
-/**
- * @brief Inclusion de la bibliothèque standard pour les flux d'entrée/sortie
- */
+/* Inclusion de la bibliothèque standard pour les flux d'entrée/sortie */
 #include <iostream>
 
 /**
@@ -27,9 +23,7 @@
 	if (expression) { std::cout << "\033[32m[TEST PASSED]\033[0m " << message << std::endl; } \
 	else { std::cout << "\033[31m[TEST FAILED]\033[0m " << message << std::endl; }
 
-/**
- * @brief Définitions des codes de couleur ANSI pour la sortie console
- */
+/* Définitions des codes de couleur ANSI pour la sortie console */
 #define GREY		"\033[0;30m"
 #define RED			"\033[0;31m"
 #define GREEN		"\033[0;32m"

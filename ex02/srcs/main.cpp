@@ -6,29 +6,34 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 03:38:25 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 00:17:00 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 11:49:12 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * @brief Inclusion de la bibliothèque standard pour les flux d'entrée/sortie
- */
+/* Inclusion de la bibliothèque standard pour les flux d'entrée/sortie */
 #include <iostream>
 
-/**
- * @brief Inclusion de la bibliothèque standard pour la gestion des fichiers
- */
+/* Inclusion de la bibliothèque standard pour la gestion des fichiers */
 #include <fstream>
 
-/**
- * @brief Inclusion du fichier d'en-tête de la classe Bureaucrat
- */
-#include "../incs/Bureaucrat.hpp"
-#include "../incs/ShrubberyCreationForm.hpp"
-#include "../incs/RobotomyRequestForm.hpp"
-#include "../incs/PresidentialPardonForm.hpp"
-#include "../incs/AForm.hpp"
+/* Inclusion de la bibliothèque standard pour la gestion des informations de type */
 #include <typeinfo>
+
+/* Inclusion du fichier d'en-tête de la classe Bureaucrat */
+#include "../incs/Bureaucrat.hpp"
+
+/* Inclusion du fichier d'en-tête de la classe ShrubberyCreationForm */
+#include "../incs/ShrubberyCreationForm.hpp"
+
+/* Inclusion du fichier d'en-tête de la classe RobotomyRequestForm */
+#include "../incs/RobotomyRequestForm.hpp"
+
+/* Inclusion du fichier d'en-tête de la classe PresidentialPardonForm */
+#include "../incs/PresidentialPardonForm.hpp"
+
+/* Inclusion du fichier d'en-tête de la classe AForm */
+#include "../incs/AForm.hpp"
+
 
 /**
  * @brief Macro pour vérifier une expression et afficher un message de test passé/échoué

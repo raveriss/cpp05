@@ -6,38 +6,26 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:46 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 00:29:46 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 11:28:57 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * @brief Directive pour éviter les inclusions multiples d'un fichier d'en-tête
- */
+/* Directive pour éviter les inclusions multiples d'un fichier d'en-tête */
 #pragma once
 
-/**
- * @brief Inclusion du fichier d'en-tête de la classe AForm
- */
+/* Inclusion du fichier d'en-tête de la classe AForm */
 #include "AForm.hpp"
 
-/**
- * @brief Inclusion de la bibliothèque standard pour la gestion des fichiers
- */
+/* Inclusion de la bibliothèque standard pour la gestion des fichiers */
 #include <fstream>
 
-/**
- * @brief Inclusion de la bibliothèque standard pour les flux d'entrée/sortie
- */
+/* Inclusion de la bibliothèque standard pour les flux d'entrée/sortie */
 #include <iostream>
 
-/**
- * @brief Inclusion de la bibliothèque standard pour la gestion des flux de chaînes
- */
+/* Inclusion de la bibliothèque standard pour la gestion des flux de chaînes */
 #include <sstream>
 
-/**
- * @brief Inclusion de la bibliothèque standard pour la gestion des informations de fichier
- */
+/* Inclusion de la bibliothèque standard pour la gestion des informations de fichier */
 #include <sys/stat.h>
 
 /**
@@ -46,16 +34,27 @@
 class ShrubberyCreationForm : public AForm
 {
     private:
+        /* Cible de la création d'arbustes */
         std::string target;
 
     protected:
+        /* Exécute l'action de création d'arbustes */
         void executeAction() const;
 
     public:
+        /* Constructeur par défaut */
         ShrubberyCreationForm();
+
+        /* Constructeur avec cible */
         ShrubberyCreationForm(const std::string & target);
+
+        /* Constructeur de copie */
         ShrubberyCreationForm(const ShrubberyCreationForm & other);
+
+        /* Opérateur d'affectation */
         ShrubberyCreationForm & operator = (const ShrubberyCreationForm & other);
+
+        /* Destructeur */
         virtual ~ShrubberyCreationForm();
 };
 

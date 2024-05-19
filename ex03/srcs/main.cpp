@@ -6,53 +6,35 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 03:38:13 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/18 03:57:50 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 11:51:09 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * @brief Inclusion de la bibliothèque standard pour les flux d'entrée/sortie
- */
+/* Inclusion de la bibliothèque standard pour les flux d'entrée/sortie */
 #include <iostream>
 
-/**
- * @brief Inclusion de la bibliothèque standard pour la gestion des fichiers
- */
+/* Inclusion de la bibliothèque standard pour la gestion des fichiers */
 #include <fstream>
 
-/**
- * @brief Inclusion de la bibliothèque standard pour les informations de type
- */
+/* Inclusion de la bibliothèque standard pour la gestion des informations de type */
 #include <typeinfo>
 
-/**
- * @brief Inclusion du fichier d'en-tête de la classe Intern
- */
+/* Inclusion du fichier d'en-tête de la classe AForm */
 #include "../incs/AForm.hpp"
 
-/**
- * @brief Inclusion du fichier d'en-tête de la classe Intern
- */
+/* Inclusion du fichier d'en-tête de la classe Intern */
 #include "../incs/Intern.hpp"
 
-/**
- * @brief Inclusion du fichier d'en-tête de la classe Bureaucrat
- */
+/* Inclusion du fichier d'en-tête de la classe Bureaucrat */
 #include "../incs/Bureaucrat.hpp"
 
-/**
- * @brief Inclusion du fichier d'en-tête de la classe ShrubberyCreationForm
- */
+/* Inclusion du fichier d'en-tête de la classe ShrubberyCreationForm */
 #include "../incs/ShrubberyCreationForm.hpp"
 
-/**
- * @brief Inclusion du fichier d'en-tête de la classe RobotomyRequestForm
- */
+/* Inclusion du fichier d'en-tête de la classe RobotomyRequestForm */
 #include "../incs/RobotomyRequestForm.hpp"
 
-/**
- * @brief Inclusion du fichier d'en-tête de la classe PresidentialPardonForm
- */
+/* Inclusion du fichier d'en-tête de la classe PresidentialPardonForm */
 #include "../incs/PresidentialPardonForm.hpp"
 
 /**
@@ -62,9 +44,7 @@
     if (expression) { std::cout << "\033[32m[TEST PASSED]\033[0m " << message << std::endl; } \
     else { std::cout << "\033[31m[TEST FAILED]\033[0m " << message << std::endl; }
 
-/**
- * @brief Définitions des codes de couleur ANSI pour la sortie console
- */
+/* Définitions des codes de couleur ANSI pour la sortie console */
 #define GREY        "\033[0;30m"
 #define RED         "\033[0;31m"
 #define GREEN       "\033[0;32m"

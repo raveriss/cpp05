@@ -6,23 +6,23 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:06 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 02:13:17 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 12:11:32 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/** @brief Directive pour éviter les inclusions multiples d'un fichier d'en-tête **/
+/* Directive pour éviter les inclusions multiples d'un fichier d'en-tête */
 #pragma once
 
-/** @brief Inclusion de la bibliothèque standard pour les flux d'entrée/sortie **/
+/* Inclusion de la bibliothèque standard pour les flux d'entrée/sortie */
 #include <iostream>
 
-/** @brief Inclusion de la bibliothèque standard pour la gestion des exceptions **/
+/* Inclusion de la bibliothèque standard pour la gestion des exceptions */
 #include <stdexcept>
 
-/** @brief Inclusion du fichier d'en-tête de la classe Form **/
+/* Inclusion du fichier d'en-tête de la classe Form */
 #include <Form.hpp>
 
-/** @brief Déclaration anticipée de la classe Form **/
+/* Déclaration anticipée de la classe Form */
 class Form;
 
 /**
@@ -31,63 +31,57 @@ class Form;
 class Bureaucrat
 {
 	private:
-		/** @brief Nom du bureaucrate **/
+		/* Nom du bureaucrate */
 		const std::string _name;
 		
-		/** @brief grade du bureaucrate **/
+		/* grade du bureaucrate */
 		int _grade;
 
 	public:
-		/** @brief Constructeur par défaut de la classe Bureaucrat **/
+		/* Constructeur par défaut de la classe Bureaucrat */
 		Bureaucrat();
 
-		/** @brief Constructeur avec paramètres de la classe Bureaucrat **/
+		/* Constructeur avec paramètres de la classe Bureaucrat */
 		Bureaucrat(const std::string & name, int grade);
 
-		/** @brief Constructeur de copie de la classe Bureaucrat **/
+		/* Constructeur de copie de la classe Bureaucrat */
 		Bureaucrat(const Bureaucrat & rootBureaucrat);
 
-		/** @brief Opérateur d'affectation de la classe Bureaucrat **/
+		/* Opérateur d'affectation de la classe Bureaucrat */
 		Bureaucrat & operator = (const Bureaucrat & rootBureaucrat);
 
-		/** @brief Destructeur de la classe Bureaucrat **/
+		/* Destructeur de la classe Bureaucrat */
 		~Bureaucrat();
 		
-		/** @brief Obtient le nom du bureaucrate **/
+		/* Obtient le nom du bureaucrate */
 		const std::string & getName() const;
 
-		/** @brief Obtient le grade du bureaucrate **/
+		/* Obtient le grade du bureaucrate */
 		int getGrade() const;
 
-		/** @brief Incrémente le grade du bureaucrate **/
+		/* Incrémente le grade du bureaucrate */
 		void incrementGrade();
 
-		/** @brief Décrémente le grade du bureaucrate **/
+		/* Décrémente le grade du bureaucrate */
 		void decrementGrade();
 
-		/** @brief Fait signer un formulaire par le bureaucrate **/
+		/* Fait signer un formulaire par le bureaucrate */
     	void signForm(Form & form) const;
 
-		/** @brief Exception pour les grades trop élevés **/
+		/* Exception pour les grades trop élevés */
 		class GradeTooHighException : public std::exception
 		{
-			/** @brief Message d'erreur pour les grades trop élevés **/
+			/* Message d'erreur pour les grades trop élevés */
 			public:
-				const char * what() const throw()
-				{
-					return "Grade too high";
-				}
+				const char * what() const throw();
 		};
 
-		/** @brief Exception pour les grades trop bas **/
+		/* Exception pour les grades trop bas */
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				/** @brief Message d'erreur pour les grades trop bas **/
-				const char * what() const throw()
-				{
-					return "Grade too low";
-				}
+				/* Message d'erreur pour les grades trop bas */
+				const char * what() const throw();
 		};
 };
 
