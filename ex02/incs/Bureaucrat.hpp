@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:06 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 00:19:38 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,13 @@ class Bureaucrat
 				/* Message d'erreur pour les grades trop bas */
 				const char * what() const throw();
 		};
+
+		/* Exception pour les noms invalides */
+        class InvalidNameException : public std::exception
+        {
+            public:
+                const char * what () const throw ();
+        };
 };
 
 /**

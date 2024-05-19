@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:58:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 23:47:25 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,38 @@
  */
 PresidentialPardonForm::PresidentialPardonForm()
 : AForm("PresidentialPardonForm", 25, 5), target("")
-{}
+{
+    std::cout << "Error: Target must be specified '" << target << "' is not recognized." << std::endl;
+    throw std::invalid_argument("Target must be specified");
+}
 
 /**
  *  Constructeur avec paramètre de la classe PresidentialPardonForm
  */
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
 : AForm("PresidentialPardonForm", 25, 5), target(target)
-{}
+{
+    if (target.empty())
+    {
+        std::cout << "Error: Target must be specified '" << target << " is not recognized." << std::endl;
+        throw std::invalid_argument("Target must be specified");
+
+    }
+}
 
 /**
  *  Constructeur de copie de la classe PresidentialPardonForm
  */
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
 : AForm(other), target(other.target)
-{}
+{
+    if (target.empty())
+    {
+        std::cout << "Error: Target must be specified '" << target << " is not recognized." << std::endl;
+        throw std::invalid_argument("Target must be specified");
+
+    }
+}
 
 /**
  *  Opérateur d'affectation de la classe PresidentialPardonForm
@@ -41,7 +58,9 @@ PresidentialPardonForm & PresidentialPardonForm::operator = (const PresidentialP
 {
     if (this != & other)
     {
-        AForm::operator=(other);
+        AForm::operator = (other);
+        if (other.target.empty())
+            throw std::invalid_argument("Target must be specified");
         target = other.target;
     }
     return *this;

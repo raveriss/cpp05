@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:02:19 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 00:28:22 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Form::Form(const Form & src)
 /**
  *  Opérateur d'affectation de la classe Form
  */
-Form& Form::operator=(const Form & rhs)
+Form& Form::operator = (const Form & rhs)
 {
     if (this != & rhs)
         this->_isSigned = rhs._isSigned;

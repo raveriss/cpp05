@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:24:41 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 00:12:18 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,6 +194,43 @@ int main()
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 		ASSERT_TEST(false, "No exception should be thrown here.");
+	}
+
+	/**
+	 * TEST CREATION OF BUREAUCRAT WITH EMPTY NAME
+	 */
+	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH EMPTY NAME:" << NC << std::endl;
+	try
+	{
+		Bureaucrat invalidNameBureaucrat("", 50);
+		ASSERT_TEST(false, "Should have thrown an exception for empty name.");
+	}
+	catch (const Bureaucrat::InvalidNameException& e)
+	{
+		ASSERT_TEST(true, "Correctly threw an exception for Invalid name");
+	}
+	catch (...)
+	{
+		ASSERT_TEST(false, "Wrong exception type caught for empty name.");
+	}
+
+	/**
+	 * TEST CREATION OF BUREAUCRAT WITH INVALID NAME
+	 */
+	std::cout << CYAN << "\nTEST CREATION OF BUREAUCRAT WITH INVALID NAME:" << NC << std::endl;
+	
+	try
+	{
+		Bureaucrat invalidNameBureaucrat("John123", 50);
+		ASSERT_TEST(false, "Should have thrown an exception for name containing digits.");
+	}
+	catch (const Bureaucrat::InvalidNameException& e)
+	{
+		ASSERT_TEST(true, "Correctly threw an exception for Invalid name");
+	}
+	catch (...)
+	{
+		ASSERT_TEST(false, "Wrong exception type caught for name containing digits.");
 	}
 
 	return 0;

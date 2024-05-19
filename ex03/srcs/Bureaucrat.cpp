@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 00:44:59 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,31 @@ Bureaucrat::Bureaucrat()
 {}
 
 /**
- *  Constructeur avec paramètres de la classe Bureaucrat, vérifie les exceptions de grade
+ *  Vérifie si un nom est valide
  */
-Bureaucrat::Bureaucrat(const std::string & name, int grade)
+bool isValidName(const std::string& name)
+{
+	if (name.empty())
+		return false;
+	for (size_t i = 0; i < name.length(); ++i)
+	{
+		if (std::isdigit(name[i]))
+			return false;
+	}
+	return true;
+}
+
+/**
+ *  Constructeur avec paramètres de la classe Bureaucrat
+ */
+Bureaucrat::Bureaucrat(const std::string& name, int grade)
 : _name(name), _grade(grade)
 {
+	if (!isValidName(name))
+	{
+		std::cout << "Invalid name: Name must not be empty and must not contain digits\n";
+		throw InvalidNameException();
+	}
 	if (_grade < 1)
 		throw GradeTooHighException();
 	if (_grade > 150)
@@ -33,21 +53,41 @@ Bureaucrat::Bureaucrat(const std::string & name, int grade)
 }
 
 /**
- *  Constructeur par copie de la classe Bureaucrat
+ *  Constructeur de copie de la classe Bureaucrat
  */
 Bureaucrat::Bureaucrat(const Bureaucrat & rootBureaucrat)
 : _name(rootBureaucrat._name), _grade(rootBureaucrat._grade)
-{}
+{
+	if (!isValidName(rootBureaucrat._name))
+	{
+		std::cout << "Invalid name: Name must not be empty and must not contain digits\n";
+		throw InvalidNameException();
+	}
+	if (_grade < 1)
+		throw GradeTooHighException();
+	if (_grade > 150)
+		throw GradeTooLowException();
+}
 
 /**
  *  Opérateur d'affectation de la classe Bureaucrat
  */
 Bureaucrat & Bureaucrat :: operator = (const Bureaucrat & rootBureaucrat)
 {
-	if (this != & rootBureaucrat)
+	if (this != &rootBureaucrat)
+	{
+		if (!isValidName(rootBureaucrat._name))
+		{
+			std::cout << "Invalid name: Name must not be empty and must not contain digits\n";
+			throw InvalidNameException();
+		}
+		if (rootBureaucrat._grade < 1)
+			throw GradeTooHighException();
+		if (rootBureaucrat._grade > 150)
+			throw GradeTooLowException();
 		_grade = rootBureaucrat._grade;
+	}
 	return *this;
-		
 }
 
 /**
@@ -142,6 +182,14 @@ const char * Bureaucrat::GradeTooHighException::what() const throw()
 const char * Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "Grade is too low!";
+}
+
+/*
+ * Exception pour un nom invalide
+ */
+const char * Bureaucrat::InvalidNameException::what() const throw()
+{
+	return "Invalid name: Name must not be empty and must not contain digits.";
 }
 
 /**

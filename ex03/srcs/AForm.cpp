@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:02:19 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 21:55:09 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  *  Constructeur par défaut de la classe AForm
  */
 AForm::AForm()
-: _name(""), _isSigned(false), _gradeRequiredToSign(150), _gradeRequiredToExecute(150)
+: _name("Default"), _isSigned(false), _gradeRequiredToSign(150), _gradeRequiredToExecute(150)
 {}
 
 /**

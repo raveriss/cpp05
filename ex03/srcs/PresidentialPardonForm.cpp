@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:58:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 17:31:05 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/19 23:47:45 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ PresidentialPardonForm::PresidentialPardonForm()
 {
     std::cout << "Error: Target must be specified '" << target << "' is not recognized." << std::endl;
     throw std::invalid_argument("Target must be specified");
-
 }
 
 /**
@@ -59,7 +58,7 @@ PresidentialPardonForm & PresidentialPardonForm::operator = (const PresidentialP
 {
     if (this != &other)
     {
-        AForm::operator=(other);
+        AForm::operator = (other);
         if (other.target.empty())
             throw std::invalid_argument("Target must be specified");
         target = other.target;
