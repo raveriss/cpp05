@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 03:38:13 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/20 13:22:36 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 22:48:06 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -270,11 +270,11 @@ int main()
         ASSERT_TEST(false, "Exception should not be thrown during getters tests.");
     }
 
-    /*
+    /**
     * TEST AForm CLASS NAME
     */
     std::cout << CYAN << "\nTEST AForm CLASS NAME:" << NC << std::endl;
-    ASSERT_TEST(std::string(typeid(AForm).name()).find("AForm") != std::string::npos, "AForm class name is correct.");
+    ASSERT_TEST(std::string(typeid(AForm).name()) == "5AForm", "AForm class name is correct.");
 
     /*
     * TEST ShrubberyCreationForm REQUIREMENTS
