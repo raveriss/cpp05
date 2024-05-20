@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:58:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/20 17:34:20 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 21:19:02 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
  *  Constructeur de copie de la classe PresidentialPardonForm
  */
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
-: AForm(other), _target(other.target)
+: AForm(other), _target(other._target)
 {
     if (_target.empty())
     {

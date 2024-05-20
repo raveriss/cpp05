@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 03:38:25 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 21:43:32 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -271,7 +271,7 @@ int main()
     * TEST AForm CLASS NAME
     */
     std::cout << CYAN << "\nTEST AForm CLASS NAME:" << NC << std::endl;
-    ASSERT_TEST(std::string(typeid(AForm).name()).find("AForm") != std::string::npos, "AForm class name is correct.");
+    ASSERT_TEST(std::string(typeid(AForm).name()) == "5AForm", "AForm class name is correct.");
 
     /**
     * TEST ShrubberyCreationForm REQUIREMENTS

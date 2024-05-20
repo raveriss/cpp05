@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:09 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/20 17:35:58 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 21:20:20 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string & target)
  *  Constructeur de copie de la classe RobotomyRequestForm
  */
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & other)
-: AForm(other), target(other._target)
+: AForm(other), _target(other._target)
 {
 	if (_target.empty())
 	{
@@ -80,7 +80,7 @@ void RobotomyRequestForm::executeAction() const
 {
     std::cout << "Drilling noises...\n";
     if (rand() % 2)
-        std::cout << target << " has been robotomized successfully.\n";
+        std::cout << _target << " has been robotomized successfully.\n";
     else
         std::cout << "Robotomy of " << _target << " failed.\n";
 }
