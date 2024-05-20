@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:20:57 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,38 @@
  *  Constructeur par défaut de la classe ShrubberyCreationForm
  */
 ShrubberyCreationForm::ShrubberyCreationForm()
-: AForm("ShrubberyCreationForm", 145, 137), target("")
-{}
+: AForm("ShrubberyCreationForm", 145, 137), _target("")
+{
+    std::cout << "Error: Target must be specified '" << _target << "' is not recognized." << std::endl;
+    throw std::invalid_argument("Target must be specified");
+}
 
 /**
  *  Constructeur avec paramètre de la classe ShrubberyCreationForm
  */
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target)
-: AForm("ShrubberyCreationForm", 145, 137), target(target)
-{}
+: AForm("ShrubberyCreationForm", 145, 137), _target(target)
+{
+    if (_target.empty())
+    {
+        std::cout << "Error: Target must be specified '" << _target << " is not recognized." << std::endl;
+        throw std::invalid_argument("Target must be specified");
+    }
+    
+}
 
 /**
  *  Constructeur de copie de la classe ShrubberyCreationForm
  */
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & other)
-: AForm(other), target(other.target)
-{}
+: AForm(other), _target(other._target)
+{
+    if (_target.empty())
+    {
+        std::cout << "Error: Target must be specified '" << _target << "' is not recognized." << std::endl;
+        throw std::invalid_argument("Target must be specified");
+    }
+}
 
 /**
  *  Opérateur d'affectation de la classe ShrubberyCreationForm
@@ -42,7 +58,12 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator = (const ShrubberyCreati
     if (this != & other)
     {
         AForm::operator = (other);
-        target = other.target;
+		if (other._target.empty())
+		{
+			std::cout << "Error: Target must be specified '" << _target << "' is not recognized." << std::endl;
+			throw std::invalid_argument("Target must be specified");
+		}
+        _target = other._target;
     }
     return *this;
 }
@@ -58,7 +79,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
  */
 void ShrubberyCreationForm::executeAction() const
 {
-    std::string baseFilename = target + "_shrubbery";
+    std::string baseFilename = _target + "_shrubbery";
     std::string filename = baseFilename;
     struct stat fileStat;
 

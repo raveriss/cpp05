@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:02:46 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 16:56:45 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:31:31 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class ShrubberyCreationForm : public AForm
 {
     private:
         /* Cible de la création d'arbustes */
-        std::string target;
+        std::string _target;
 
     protected:
         /* Exécute l'action de création d'arbustes */

@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:47:28 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 13:18:50 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ Intern::~Intern()
  */
 AForm * Intern::makeForm(const std::string & formName, const std::string & target) const
 {
+    if (target.empty())
+    {
+		std::cout << "Error: Target must be specified ''" << target << " is not recognized." << std::endl;
+        throw std::invalid_argument("Error: Target must be specified and cannot be empty.");
+    }
     std::string formTypes[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
     AForm* (Intern::*formCreators[3])(const std::string&) const = {
         &Intern::createShrubberyCreation,

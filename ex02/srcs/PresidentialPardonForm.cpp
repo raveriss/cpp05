@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:58:30 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 23:47:25 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:34:20 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
  *  Constructeur par défaut de la classe PresidentialPardonForm
  */
 PresidentialPardonForm::PresidentialPardonForm()
-: AForm("PresidentialPardonForm", 25, 5), target("")
+: AForm("PresidentialPardonForm", 25, 5), _target("")
 {
-    std::cout << "Error: Target must be specified '" << target << "' is not recognized." << std::endl;
+    std::cout << "Error: Target must be specified '" << _target << "' is not recognized." << std::endl;
     throw std::invalid_argument("Target must be specified");
 }
 
@@ -27,13 +27,12 @@ PresidentialPardonForm::PresidentialPardonForm()
  *  Constructeur avec paramètre de la classe PresidentialPardonForm
  */
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
-: AForm("PresidentialPardonForm", 25, 5), target(target)
+: AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
-    if (target.empty())
+    if (_target.empty())
     {
-        std::cout << "Error: Target must be specified '" << target << " is not recognized." << std::endl;
+        std::cout << "Error: Target must be specified '" << _target << " is not recognized." << std::endl;
         throw std::invalid_argument("Target must be specified");
-
     }
 }
 
@@ -41,11 +40,11 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
  *  Constructeur de copie de la classe PresidentialPardonForm
  */
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
-: AForm(other), target(other.target)
+: AForm(other), _target(other.target)
 {
-    if (target.empty())
+    if (_target.empty())
     {
-        std::cout << "Error: Target must be specified '" << target << " is not recognized." << std::endl;
+        std::cout << "Error: Target must be specified '" << _target << " is not recognized." << std::endl;
         throw std::invalid_argument("Target must be specified");
 
     }
@@ -59,9 +58,12 @@ PresidentialPardonForm & PresidentialPardonForm::operator = (const PresidentialP
     if (this != & other)
     {
         AForm::operator = (other);
-        if (other.target.empty())
+        if (other._target.empty())
+        {
+			std::cout << "Error: Target must be specified '" << _target << " is not recognized." << std::endl;
             throw std::invalid_argument("Target must be specified");
-        target = other.target;
+        }
+        _target = other._target;
     }
     return *this;
 }
@@ -77,7 +79,15 @@ PresidentialPardonForm::~PresidentialPardonForm()
  */
 void PresidentialPardonForm::executeAction() const
 {
-    std::cout << target << " has been pardoned by Zaphod Beeblebrox.\n";
+    std::cout << _target << " has been pardoned by Zaphod Beeblebrox.\n";
+}
+
+/**
+ *  Accesseur pour la cible
+ */
+std::string PresidentialPardonForm::getTarget() const
+{
+    return _target;
 }
 
 /* PRESIDENTIALPARDONFORM.CPP */

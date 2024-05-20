@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 03:38:13 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 17:42:32 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 13:22:36 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -411,6 +411,17 @@ int main()
     {
         form = intern.makeForm(invalidNames[i], "target");
         ASSERT_TEST(!form, "Invalid form name, does not create form");
+    }
+
+    /**
+     * TESTING EMPTY TARGET HANDLING
+    */
+    std::cout << std::endl << CYAN << "TESTING EMPTY TARGET HANDLING" << NC << std::endl;
+    try {
+        form = intern.makeForm("shrubbery creation", "");
+        ASSERT_TEST(false, "Empty target should throw an exception");
+    } catch (const std::invalid_argument& e) {
+        ASSERT_TEST(true, "Caught exception for empty target");
     }
 
     /**

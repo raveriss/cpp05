@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:09 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:35:58 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,37 @@
  *  Constructeur par défaut de la classe RobotomyRequestForm
  */
 RobotomyRequestForm::RobotomyRequestForm()
-: AForm("RobotomyRequestForm", 72, 45), target("")
-{}
+: AForm("RobotomyRequestForm", 72, 45), _target("")
+{
+	std::cout << "Error: Target must be specified '" << _target << "' is not recognized." << std::endl;
+	throw std::invalid_argument("Target must be specified");
+}
 
 /**
  *  Constructeur avec paramètre de la classe RobotomyRequestForm
  */
 RobotomyRequestForm::RobotomyRequestForm(const std::string & target)
-: AForm("RobotomyRequestForm", 72, 45), target(target)
-{}
+: AForm("RobotomyRequestForm", 72, 45), _target(target)
+{
+	if (_target.empty())
+	{
+		std::cout << "Error: Target must be specified '" << _target << "' is not recognized." << std::endl;
+		throw std::invalid_argument("Target must be specified");
+	}
+}
 
 /**
  *  Constructeur de copie de la classe RobotomyRequestForm
  */
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & other)
-: AForm(other), target(other.target)
-{}
+: AForm(other), target(other._target)
+{
+	if (_target.empty())
+	{
+		std::cout << "Error: Target must be specified '" << _target << "' is not recognized." << std::endl;
+		throw std::invalid_argument("Target must be specified");
+	}
+}
 
 /**
  *  Opérateur d'affectation de la classe RobotomyRequestForm
@@ -41,8 +56,13 @@ RobotomyRequestForm & RobotomyRequestForm::operator = (const RobotomyRequestForm
 {
     if (this != & other)
     {
-        AForm::operator=(other);
-        target = other.target;
+        AForm::operator = (other);
+		if (other._target.empty())
+		{
+			std::cout << "Error: Target must be specified '" << _target << " is not recognized." << std::endl;
+			throw std::invalid_argument("Target must be specified");
+		}
+        _target = other._target;
     }
     return *this;
 }
@@ -62,7 +82,15 @@ void RobotomyRequestForm::executeAction() const
     if (rand() % 2)
         std::cout << target << " has been robotomized successfully.\n";
     else
-        std::cout << "Robotomy of " << target << " failed.\n";
+        std::cout << "Robotomy of " << _target << " failed.\n";
+}
+
+/**
+ *  Accesseur pour la cible
+ */
+std::string RobotomyRequestForm::getTarget() const
+{
+	return _target;
 }
 
 /* RobotomyRequestForm.cpp */

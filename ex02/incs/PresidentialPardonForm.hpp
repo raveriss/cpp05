@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:59:02 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:30:28 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class PresidentialPardonForm : public AForm
 {
     private:
         /* Cible de la grâce présidentielle */
-        std::string target;
+        std::string _target;
 
     protected:
         /* Exécute l'action de grâce présidentielle */
@@ -47,6 +47,9 @@ class PresidentialPardonForm : public AForm
         
         /* Destructeur */
         virtual ~PresidentialPardonForm();
+
+        /* Accesseur pour la cible */
+        std::string getTarget() const;
 };
 
 /* PRESIDENTIALPARDONFORM.HPP */

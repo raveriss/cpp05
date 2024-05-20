@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:06 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 23:50:08 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:47:50 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 /* Inclusion du fichier d'en-tête de la classe Form */
 #include <Form.hpp>
+
 
 /* Déclaration anticipée de la classe Form */
 class Form;
@@ -89,7 +90,7 @@ class Bureaucrat
         {
             public:
                 const char * what () const throw ();
-        };
+        };		
 };
 
 /**

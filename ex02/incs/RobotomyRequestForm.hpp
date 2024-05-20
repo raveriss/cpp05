@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 16:22:40 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:31:00 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class RobotomyRequestForm : public AForm
 {
     private:
         /* Cible de la demande de robotomie */
-        std::string target;
+        std::string _target;
 
     protected:
         /* Exécute l'action de robotomie */
@@ -50,6 +50,9 @@ class RobotomyRequestForm : public AForm
 
         /* Destructeur */
         virtual ~RobotomyRequestForm();
+
+        /* Accesseur pour la cible */
+        std::string getTarget() const;
 };
 
 /* ROBOTOMYREQUESTFORM.HPP */

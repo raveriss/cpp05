@@ -6,7 +6,7 @@
 /*   By: raveriss <raveriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:23:38 by raveriss          #+#    #+#             */
-/*   Updated: 2024/05/19 23:55:04 by raveriss         ###   ########.fr       */
+/*   Updated: 2024/05/20 13:56:14 by raveriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,14 @@ const char *Bureaucrat::GradeTooHighException::what() const throw()
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "Grade is too low!";
+}
+
+/**
+ *  Exception pour un nom invalide dans la classe Bureaucrat
+ */
+const char *Bureaucrat::InvalidNameException::what() const throw()
+{
+    return "Invalid name: Name must not be empty and must not contain digits.";
 }
 
 /**
