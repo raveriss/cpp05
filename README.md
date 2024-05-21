@@ -26,7 +26,7 @@ Introduces basic exception handling by implementing the `Bureaucrat` class, wher
 Expands upon the `Bureaucrat` class by introducing a `Form` class, which must be signed by bureaucrats. Demonstrates exception handling and validation within class interactions.
 
 ### Exercise 02: Advanced Forms
-- **Directory:** 'ex02/'
+- **Directory:** `ex02/`
 - **Files to submit:**
   - All files from Exercise 01 plus
   - Modifications to use abstract classes (*.cpp, *.h, *.hpp)
