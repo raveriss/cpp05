@@ -19,8 +19,8 @@ Introduces basic exception handling by implementing the `Bureaucrat` class, wher
 ### Exercise 01: Form Validation
 - **Directory:** `ex01/`
 - **Files to submit:**
-- All files from Exercise 00 plus
-- Additional class implementations (`*.cpp`, `*.h`, `*.hpp`)
+  - All files from Exercise 00 plus
+  - Additional class implementations (`*.cpp`, `*.h`, `*.hpp`)
 
 #### Functionality
 Expands upon the `Bureaucrat` class by introducing a `Form` class, which must be signed by bureaucrats. Demonstrates exception handling and validation within class interactions.
