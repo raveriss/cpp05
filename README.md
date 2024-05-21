@@ -29,7 +29,7 @@ Expands upon the `Bureaucrat` class by introducing a `Form` class, which must be
 - **Directory:** `ex02/`
 - **Files to submit:**
   - All files from Exercise 01 plus
-  - Modifications to use abstract classes (*.cpp, *.h, *.hpp)
+  - Modifications to use abstract classes (`*.cpp`, `*.h`, `*.hpp`)
 
 #### Functionality
 Transforms the `Form` class into an abstract base class and introduces several derived classes representing specific types of forms (e.g., ShrubberyCreationForm, RobotomyRequestForm, PresidentialPardonForm).
