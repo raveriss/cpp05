@@ -42,7 +42,7 @@ Transforms the `Form` class into an abstract base class and introduces several d
   - Comprehensive implementations (`*.cpp`, `*.h`, `*.hpp`)
 
 #### Functionality
-Implements an Intern class responsible for creating form objects dynamically. This exercise showcases the factory design pattern and reinforces the use of interfaces and polymorphism.
+Implements an `Intern` class responsible for creating form objects dynamically. This exercise showcases the factory design pattern and reinforces the use of interfaces and polymorphism.
 
 ## Compilation and Execution
 Navigate to the specific exercise directory and use the make command to compile the projects. Each executable can be run directly to demonstrate the functionalities implemented.
